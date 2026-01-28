@@ -31,6 +31,10 @@ const comica = localFont({
 export const metadata: Metadata = {
   title: "Heroes for IBD - Pediatric IBD Awareness",
   description: "Helping children thrive with IBD support, awareness, and community.",
+  icons: {
+    icon: '/images/logo.jpg',
+    apple: '/images/logo.jpg',
+  },
 };
 
 export default function RootLayout({
