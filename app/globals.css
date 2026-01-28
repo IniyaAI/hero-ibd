@@ -1,26 +1,102 @@
 @import "tailwindcss";
 
+
+@theme {
+  --font-heading: var(--font-amatic, 'Amatic SC', sans-serif);
+  --font-body: var(--font-comica, 'Comica', sans-serif);
+
+  /* Watercolor / Hero Aesthetic Palette */
+  --color-primary: #9f7da8;
+  /* Hero Purple */
+  --color-secondary: #9D72FF;
+  /* Soft Purple */
+  --color-accent: #FF6B6B;
+  /* Watercolor Red/Coral */
+  --color-paper: #FAF9F6;
+  /* Off-white paper */
+  --color-text: #2D2D2D;
+  /* Graphite/Pencil text */
+  --color-nav-bg: rgba(255, 255, 255, 0.9);
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: var(--color-paper);
+  --foreground: var(--color-text);
+  --radius-card: 255px 15px 225px 15px / 15px 225px 15px 255px;
+  /* Sketchy radius */
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
+  background-image: url('/images/watercolor-paper.svg');
+  background-blend-mode: multiply;
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-comica, 'Comica', sans-serif);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  letter-spacing: 0.05em;
+}
+
+@layer utilities {
+  .sketch-card {
+    background-color: white;
+    border-radius: 40px 50px 45px 55px;
+    /* Bubbly, soft corners */
+    border: 3px solid var(--color-primary);
+    /* Making border slightly thicker and purple for pop */
+    padding: 2rem;
+    box-shadow: 4px 6px 0px rgba(157, 114, 255, 0.2);
+    transition: all 0.3s ease;
+  }
+
+  .sketch-card:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 6px 8px 0px rgba(159, 125, 168, 0.3);
+    border-radius: 50px 40px 55px 45px;
+    /* Slight morph on hover */
+  }
+
+  .sketch-btn {
+    border-radius: 60px 50px 70px 60px;
+    /* Very bubbly buttons */
+    border: 2px solid #2D2D2D;
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .sketch-btn:hover {
+    transform: scale(1.05);
+    border-radius: 50px 60px 50px 70px;
+    /* Bubbly morph */
+  }
+
+  /* Text marker highlight effect */
+  .marker-highlight {
+    position: relative;
+    white-space: nowrap;
+    z-index: 1;
+  }
+
+  .marker-highlight::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -5%;
+    width: 110%;
+    height: 60%;
+    background-color: var(--color-secondary);
+    opacity: 0.3;
+    z-index: -1;
+    transform: translateY(-20%) rotate(-1deg);
+    border-radius: 4px;
+  }
 }
