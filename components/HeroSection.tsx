@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -27,19 +28,31 @@ export const HeroSection = () => {
                         Supporting bright futures with care, compassion, and awareness for pediatric IBD. Every child deserves to be a superhero.
                     </p>
 
-                    <div className="flex flex-wrap gap-4 pl-2">
+                    <div className="flex flex-wrap gap-3 pl-2">
                         <button 
                             onClick={() => scrollToSection('mission')}
-                            className="sketch-btn bg-accent text-white px-8 py-3 text-2xl hover:rotate-1"
+                            className="sketch-btn bg-accent text-white px-6 py-3 text-lg md:text-xl hover:rotate-1 whitespace-nowrap"
                         >
                             Learn More
                         </button>
                         <button 
                             onClick={() => scrollToSection('mission')}
-                            className="sketch-btn bg-white text-primary px-8 py-3 text-2xl hover:-rotate-1"
+                            className="sketch-btn bg-white text-primary px-6 py-3 text-lg md:text-xl hover:-rotate-1 whitespace-nowrap"
                         >
                             Our Programs
                         </button>
+                        <Link 
+                            href="/events"
+                            className="sketch-btn bg-secondary text-white px-6 py-3 text-lg md:text-xl hover:rotate-1 whitespace-nowrap"
+                        >
+                            View Events
+                        </Link>
+                        <Link 
+                            href="/fundraising"
+                            className="sketch-btn bg-primary text-white px-6 py-3 text-lg md:text-xl hover:-rotate-1 whitespace-nowrap"
+                        >
+                            Donate Now
+                        </Link>
                     </div>
                 </div>
 
