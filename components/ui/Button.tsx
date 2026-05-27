@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ReactNode } from "react";
 
-type ButtonVariant = "primary" | "secondary" | "outline";
+type ButtonVariant = "primary" | "secondary" | "outline" | "ghost";
 
 interface ButtonProps {
   href?: string;
@@ -11,16 +11,24 @@ interface ButtonProps {
   className?: string;
   external?: boolean;
   type?: "button" | "submit";
-  size?: "default" | "sm";
+  size?: "default" | "sm" | "lg";
 }
 
 const variants: Record<ButtonVariant, string> = {
   primary:
-    "bg-[var(--color-coral)] text-white hover:bg-[var(--color-coral-hover)] border border-transparent",
+    "bg-[var(--color-coral)] text-white hover:bg-[var(--color-coral-hover)] active:bg-[var(--color-coral-deep)] border border-transparent shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)]",
   secondary:
-    "bg-[var(--color-lavender)] text-white hover:bg-[var(--color-lavender-deep)] border border-transparent",
+    "bg-[var(--color-lavender)] text-white hover:bg-[var(--color-lavender-deep)] border border-transparent shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)]",
   outline:
-    "bg-transparent text-[var(--color-plum)] border border-[var(--color-line-strong)] hover:border-[var(--color-lavender)] hover:text-[var(--color-lavender-deep)]",
+    "bg-white text-[var(--color-plum)] border-2 border-[var(--color-line-strong)] hover:border-[var(--color-coral)] hover:text-[var(--color-coral-deep)] shadow-[var(--shadow-sm)]",
+  ghost:
+    "bg-transparent text-[var(--color-plum-light)] hover:text-[var(--color-plum)] hover:bg-[var(--color-wash)]",
+};
+
+const sizes: Record<string, string> = {
+  sm: "px-4 py-2 text-sm",
+  default: "px-6 py-3 text-sm",
+  lg: "px-8 py-4 text-base",
 };
 
 export function Button({
@@ -33,8 +41,7 @@ export function Button({
   type = "button",
   size = "default",
 }: ButtonProps) {
-  const sizeClass = size === "sm" ? "px-4 py-2 text-sm" : "px-5 py-2.5 text-sm";
-  const base = `inline-flex items-center justify-center gap-1.5 rounded-[var(--radius)] font-semibold transition-colors duration-150 whitespace-nowrap ${sizeClass}`;
+  const base = `inline-flex items-center justify-center gap-2 rounded-[var(--radius)] font-semibold transition-all duration-200 whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-[var(--color-lavender)] focus:ring-offset-2 ${sizes[size]}`;
   const classes = `${base} ${variants[variant]} ${className}`;
 
   if (href) {

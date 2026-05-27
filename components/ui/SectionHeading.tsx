@@ -5,21 +5,22 @@ interface SectionHeadingProps {
   subtitle?: string;
   brand?: boolean;
   children?: ReactNode;
+  centered?: boolean;
 }
 
-export function SectionHeading({ title, subtitle, brand = false, children }: SectionHeadingProps) {
+export function SectionHeading({ title, subtitle, brand = false, children, centered = false }: SectionHeadingProps) {
   return (
-    <div className="mb-10 md:mb-12 max-w-2xl">
-      {brand && <div className="accent-rule mb-4" />}
+    <div className={`mb-12 md:mb-16 ${centered ? "text-center mx-auto" : ""} max-w-2xl`}>
+      {brand && <div className={`accent-rule mb-5 ${centered ? "mx-auto" : ""}`} />}
       <h2
-        className={`text-2xl md:text-[1.75rem] font-semibold text-[var(--color-plum)] text-balance ${
-          brand ? "font-brand text-xl md:text-2xl font-bold" : ""
+        className={`text-3xl md:text-4xl font-bold text-[var(--color-plum)] text-balance ${
+          brand ? "font-brand tracking-wide" : ""
         }`}
       >
         {title}
       </h2>
       {subtitle && (
-        <p className="mt-3 text-[var(--color-plum-light)] text-pretty leading-relaxed">
+        <p className="mt-4 text-lg text-[var(--color-plum-light)] text-pretty leading-relaxed">
           {subtitle}
         </p>
       )}

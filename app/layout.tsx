@@ -40,9 +40,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="bg-white">
       <body
-        className={`${plusJakarta.variable} ${sourceSans.variable} ${montserrat.variable} antialiased font-[family-name:var(--font-body)] text-[var(--color-plum)]`}
+        className={`${plusJakarta.variable} ${sourceSans.variable} ${montserrat.variable} antialiased font-[family-name:var(--font-body)] text-[var(--color-plum)] min-h-screen flex flex-col`}
       >
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-FXNGDRSD9B"
