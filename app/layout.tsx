@@ -1,40 +1,36 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { Amatic_SC } from "next/font/google";
-import localFont from "next/font/local";
+import { Plus_Jakarta_Sans, Source_Sans_3, Montserrat } from "next/font/google";
 import "./globals.css";
 
-const amatic = Amatic_SC({
-  weight: ["400", "700"],
+const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  variable: "--font-amatic",
+  variable: "--font-plus-jakarta",
   display: "swap",
+  weight: ["500", "600", "700"],
 });
 
-const comica = localFont({
-  src: [
-    {
-      path: "./fonts/ComicaRg.otf",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "./fonts/ComicaRgIta.otf",
-      weight: "400",
-      style: "italic",
-    },
-  ],
-  variable: "--font-comica",
+const sourceSans = Source_Sans_3({
+  subsets: ["latin"],
+  variable: "--font-source-sans",
   display: "swap",
-  fallback: ["sans-serif"],
+  weight: ["400", "500", "600"],
+});
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  variable: "--font-montserrat",
+  display: "swap",
+  weight: ["600", "700"],
 });
 
 export const metadata: Metadata = {
-  title: "Heroes for IBD - Pediatric IBD Awareness",
-  description: "Helping children thrive with IBD support, awareness, and community.",
+  title: "Heart to Heart NPO | Where Awareness Leads to Action",
+  description:
+    "Heart to Heart is a youth-led 501(c)(3) nonprofit dedicated to promoting earlier diagnosis and improving outcomes for individuals living with chronic illnesses through awareness, education, and support.",
   icons: {
-    icon: '/images/logo.jpg',
-    apple: '/images/logo.jpg',
+    icon: "/images/logo.png",
+    apple: "/images/logo.png",
   },
 };
 
@@ -46,9 +42,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${amatic.variable} ${comica.variable} antialiased font-comica`}
+        className={`${plusJakarta.variable} ${sourceSans.variable} ${montserrat.variable} antialiased font-[family-name:var(--font-body)] text-[var(--color-text)]`}
       >
-        {/* Google tag (gtag.js) */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-FXNGDRSD9B"
           strategy="afterInteractive"

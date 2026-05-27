@@ -1,28 +1,25 @@
 import { Navbar } from "@/components/Navbar";
-import { HeroSection } from "@/components/HeroSection";
-import { MissionSection } from "@/components/MissionSection";
-import { TeamSection } from "@/components/TeamSection";
-import { TriviaSection } from "@/components/TriviaSection";
-import { StoriesSection } from "@/components/StoriesSection";
-import { EventsPreview } from "@/components/EventsPreview";
-import { FundraisingPreview } from "@/components/FundraisingPreview";
 import { Footer } from "@/components/Footer";
+import { MissionHero } from "@/components/home/MissionHero";
+import { PillarsSection } from "@/components/home/PillarsSection";
+import { PreviewSection } from "@/components/home/PreviewSection";
+import { ImpactSection } from "@/components/home/ImpactSection";
+import { DonateCTA } from "@/components/home/DonateCTA";
+import { PartnersSection } from "@/components/home/PartnersSection";
 
 export default function Home() {
   return (
-    <main className="min-h-screen overflow-x-hidden pt-0">
+    <>
       <Navbar />
-      <HeroSection />
-
-      {/* Sections stack cleanly with their own backgrounds */}
-      <MissionSection />
-      <StoriesSection />
-      <TriviaSection />
-      <TeamSection />
-      <EventsPreview />
-      <FundraisingPreview />
-
+      <main>
+        <MissionHero />
+        <ImpactSection />
+        <PillarsSection />
+        <PreviewSection />
+        <DonateCTA />
+        <PartnersSection />
+      </main>
       <Footer />
-    </main>
+    </>
   );
 }

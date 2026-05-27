@@ -1,216 +1,144 @@
+"use client";
+
+import { useState } from "react";
+import Image from "next/image";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { Calendar, Users, Gift, MapPin, Eye, Heart } from 'lucide-react';
+import { PageHeader } from "@/components/ui/PageHeader";
+import { Button } from "@/components/ui/Button";
 
-const EventCard = ({ 
-  title, 
-  date, 
-  stat, 
-  statLabel, 
-  icon: Icon, 
-  location 
-}: { 
-  title: string; 
-  date: string; 
-  stat: string; 
-  statLabel: string; 
-  icon: any; 
-  location?: string;
-}) => (
-  <div className="sketch-card p-8 hover:scale-105 transition-transform">
-    <div className="flex items-start gap-4 mb-6">
-      <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
-        <Icon className="w-8 h-8 text-primary" />
-      </div>
-      <div className="flex-1">
-        <h3 className="text-3xl font-bold text-primary mb-2 font-heading">{title}</h3>
-        <div className="flex items-center gap-2 text-text/70 font-body text-lg mb-2">
-          <Calendar className="w-5 h-5" />
-          <span>{date}</span>
-        </div>
-        {location && (
-          <div className="flex items-center gap-2 text-text/70 font-body text-lg mb-4">
-            <MapPin className="w-5 h-5" />
-            <span>{location}</span>
-          </div>
-        )}
-      </div>
-    </div>
-    <div className="border-t border-primary/20 pt-4">
-      <div className="text-center">
-        <p className="text-4xl font-bold text-primary mb-1 font-heading">{stat}</p>
-        <p className="text-text font-body text-xl">{statLabel}</p>
-      </div>
-    </div>
-  </div>
-);
+const upcomingEvents = [
+  {
+    title: "5K Walk/Run",
+    date: "May 23, 2026",
+    time: "More details coming soon",
+    location: "DFW Area",
+    description:
+      "In partnership with the STAR Foundation for Athletic Recovery and PowerPlay. Supporting chronic illness awareness and athletic recovery.",
+    registerUrl: "https://forms.gle/omnufq3TjZtp4ssH8",
+  },
+];
 
-const FutureEventCard = ({ 
-  title, 
-  date, 
-  stat, 
-  statLabel, 
-  icon: Icon,
-  scheduled 
-}: { 
-  title: string; 
-  date: string; 
-  stat?: string; 
-  statLabel?: string; 
-  icon: any;
-  scheduled?: boolean;
-}) => (
-  <div className="sketch-card p-8 hover:scale-105 transition-transform">
-    <div className="flex items-start gap-4 mb-6">
-      <div className="w-16 h-16 rounded-full bg-secondary/20 flex items-center justify-center flex-shrink-0">
-        <Icon className="w-8 h-8 text-secondary" />
-      </div>
-      <div className="flex-1">
-        <h3 className="text-3xl font-bold text-primary mb-2 font-heading">{title}</h3>
-        <div className="flex items-center gap-2 text-text/70 font-body text-lg mb-2">
-          <Calendar className="w-5 h-5" />
-          <span>{date}</span>
-        </div>
-        {scheduled && (
-          <span className="inline-block bg-accent/20 text-accent px-3 py-1 rounded-full text-sm font-bold font-heading">
-            SCHEDULED
-          </span>
-        )}
-      </div>
-    </div>
-    {stat && statLabel && (
-      <div className="border-t border-primary/20 pt-4">
-        <div className="text-center">
-          <p className="text-4xl font-bold text-primary mb-1 font-heading">{stat}</p>
-          <p className="text-text font-body text-xl">{statLabel}</p>
-        </div>
-      </div>
-    )}
-  </div>
-);
+const pastEvents = [
+  {
+    title: "Charity Pickleball Tournament",
+    date: "2025",
+    image: "https://picsum.photos/seed/pickleball-past/800/500",
+    metrics: [
+      { label: "Raised", value: "$700" },
+      { label: "Beneficiary", value: "CCF" },
+      { label: "Sponsor", value: "CUTX" },
+    ],
+    description:
+      "Community tournament raising funds for the Crohn's & Colitis Foundation.",
+  },
+  {
+    title: "Sports Inclusivity Seminar",
+    date: "2025",
+    image: "https://picsum.photos/seed/seminar-past/800/500",
+    metrics: [
+      { label: "Attendees", value: "65+" },
+      { label: "Speaker", value: "Dr. Gurram" },
+    ],
+    description:
+      "Seminar with Pediatric Gastroenterologist Dr. Bhaskar Gurram on sports inclusivity.",
+  },
+  {
+    title: "HEARD Awareness Campaign",
+    date: "2024",
+    image: "https://picsum.photos/seed/heard-past/800/500",
+    metrics: [
+      { label: "Reach", value: "1000s" },
+      { label: "Type", value: "School Event" },
+    ],
+    description: "School-based awareness campaign for chronic illness education.",
+  },
+];
 
 export default function EventsPage() {
-  const pastEvents = [
-    {
-      title: "Social Media Outreach",
-      date: "October 2024 - Present",
-      stat: "204,463+",
-      statLabel: "VIEWS AND INTERACTIONS",
-      icon: Eye,
-    },
-    {
-      title: "School Outreach",
-      date: "October 2025",
-      stat: "130+",
-      statLabel: "CARDS MADE",
-      icon: Heart,
-    },
-    {
-      title: "Toy Donation Drive",
-      date: "November 2025 - December 2025",
-      stat: "65+",
-      statLabel: "TOYS DONATED",
-      icon: Gift,
-    },
-    {
-      title: "IBD Awareness Week Proclamation",
-      date: "Issued first week of December 2025",
-      stat: "CELINA",
-      statLabel: "CITY-WIDE EVENT",
-      icon: MapPin,
-      location: "Celina, TX",
-    },
-    {
-      title: "IBD Awareness Booths",
-      date: "December 2025",
-      stat: "50+",
-      statLabel: "PARTICIPANTS",
-      icon: Users,
-    },
-  ];
-
-  const futureEvents = [
-    {
-      title: "Crohn's & Colitis Foundation Newsletter",
-      date: "January 28, 2026",
-      stat: "10,000",
-      statLabel: "VIEWS",
-      icon: Eye,
-    },
-    {
-      title: "Infographic & Brochure Distribution",
-      date: "January 29, 2026",
-      icon: Users,
-    },
-    {
-      title: "Hearts of Hope: IBD Awareness Wall",
-      date: "January 30, 2026",
-      scheduled: true,
-      icon: Heart,
-    },
-    {
-      title: "IBD Webinar w/ Pediatrician",
-      date: "February 1, 2026",
-      scheduled: true,
-      icon: Users,
-    },
-  ];
+  const [expandedPast, setExpandedPast] = useState<number | null>(0);
 
   return (
-    <main className="min-h-screen overflow-x-hidden pt-0">
+    <>
       <Navbar />
-      
-      <section className="pt-32 pb-24 bg-paper/50">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <span className="text-accent font-bold tracking-wider uppercase text-lg mb-2 block font-heading rotate-[-1deg]">Our Events</span>
-            <h1 className="text-7xl font-bold text-primary font-heading mb-4">
-              Past & Upcoming Events
-            </h1>
-            <p className="text-text text-xl font-body max-w-2xl mx-auto">
-              See what we've accomplished and what's coming next in our mission to support pediatric IBD.
-            </p>
-          </div>
+      <main>
+        <PageHeader
+          title="Events"
+          description="Join us at upcoming events or explore our past community impact."
+        />
 
-          {/* Past Events */}
-          <div className="mb-24">
-            <h2 className="text-5xl font-bold text-primary mb-12 font-heading text-center">Past Events</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <section className="section-padding bg-white">
+          <div className="container-wide">
+            <h2 className="font-[family-name:var(--font-heading)] text-lg font-semibold text-[var(--color-navy)] mb-6">
+              Upcoming
+            </h2>
+            <div className="space-y-4 mb-16">
+              {upcomingEvents.map((event) => (
+                <article key={event.title} className="card-medical p-6 md:p-8">
+                  <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
+                    <div>
+                      <h3 className="text-xl font-semibold text-[var(--color-navy)]">{event.title}</h3>
+                      <p className="text-sm font-medium text-[var(--color-coral)] mt-1">{event.date}</p>
+                    </div>
+                    <Button href={event.registerUrl} external size="sm">
+                      Register
+                    </Button>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-[var(--color-text-secondary)] mb-4">
+                    <p><span className="font-semibold text-[var(--color-navy)]">Time:</span> {event.time}</p>
+                    <p><span className="font-semibold text-[var(--color-navy)]">Location:</span> {event.location}</p>
+                  </div>
+                  <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed">{event.description}</p>
+                </article>
+              ))}
+            </div>
+
+            <h2 className="font-[family-name:var(--font-heading)] text-lg font-semibold text-[var(--color-navy)] mb-6">
+              Past Events
+            </h2>
+            <div className="space-y-4">
               {pastEvents.map((event, index) => (
-                <EventCard
-                  key={index}
-                  title={event.title}
-                  date={event.date}
-                  stat={event.stat}
-                  statLabel={event.statLabel}
-                  icon={event.icon}
-                  location={event.location}
-                />
+                <article key={event.title} className="card-medical overflow-hidden">
+                  <button
+                    type="button"
+                    onClick={() => setExpandedPast(expandedPast === index ? null : index)}
+                    className="w-full text-left"
+                  >
+                    <div className="flex flex-col sm:flex-row">
+                      <div className="relative sm:w-48 md:w-56 aspect-video sm:aspect-auto sm:min-h-[120px] shrink-0">
+                        <Image src={event.image} alt={event.title} fill className="object-cover" />
+                      </div>
+                      <div className="p-5 flex-1 flex items-center justify-between gap-4">
+                        <div>
+                          <h3 className="font-semibold text-[var(--color-navy)]">{event.title}</h3>
+                          <p className="text-sm text-[var(--color-text-muted)]">{event.date}</p>
+                        </div>
+                        <span className="text-xs font-semibold text-[var(--color-coral)] shrink-0">
+                          {expandedPast === index ? "Hide" : "Details"}
+                        </span>
+                      </div>
+                    </div>
+                  </button>
+                  {expandedPast === index && (
+                    <div className="px-5 pb-5 border-t border-[var(--color-border-light)] pt-4">
+                      <div className="flex flex-wrap gap-6 mb-3">
+                        {event.metrics.map((m) => (
+                          <div key={m.label}>
+                            <p className="text-lg font-bold text-[var(--color-navy)] tabular-nums">{m.value}</p>
+                            <p className="text-xs text-[var(--color-text-muted)]">{m.label}</p>
+                          </div>
+                        ))}
+                      </div>
+                      <p className="text-sm text-[var(--color-text-secondary)]">{event.description}</p>
+                    </div>
+                  )}
+                </article>
               ))}
             </div>
           </div>
-
-          {/* Future Events */}
-          <div>
-            <h2 className="text-5xl font-bold text-primary mb-12 font-heading text-center">Upcoming Events</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {futureEvents.map((event, index) => (
-                <FutureEventCard
-                  key={index}
-                  title={event.title}
-                  date={event.date}
-                  stat={event.stat}
-                  statLabel={event.statLabel}
-                  icon={event.icon}
-                  scheduled={event.scheduled}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
+        </section>
+      </main>
       <Footer />
-    </main>
+    </>
   );
 }

@@ -1,102 +1,117 @@
 @import "tailwindcss";
 
-
 @theme {
-  --font-heading: var(--font-amatic, 'Amatic SC', sans-serif);
-  --font-body: var(--font-comica, 'Comica', sans-serif);
+  --font-heading: var(--font-plus-jakarta, "Plus Jakarta Sans", sans-serif);
+  --font-body: var(--font-source-sans, "Source Sans 3", sans-serif);
+  --font-brand: var(--font-montserrat, "Montserrat", sans-serif);
 
-  /* Watercolor / Hero Aesthetic Palette */
-  --color-primary: #9f7da8;
-  /* Hero Purple */
-  --color-secondary: #9D72FF;
-  /* Soft Purple */
-  --color-accent: #FF6B6B;
-  /* Watercolor Red/Coral */
-  --color-paper: #FAF9F6;
-  /* Off-white paper */
-  --color-text: #2D2D2D;
-  /* Graphite/Pencil text */
-  --color-nav-bg: rgba(255, 255, 255, 0.9);
+  --color-navy: #1a2332;
+  --color-navy-mid: #2c3544;
+  --color-coral: #c96860;
+  --color-coral-soft: #f9ebe9;
+  --color-lavender: #7d6f9b;
+  --color-lavender-soft: #f0ecf5;
+  --color-surface: #ffffff;
+  --color-subtle: #f4f6f9;
+  --color-subtle-warm: #faf8f6;
+  --color-text: #1a2332;
+  --color-text-secondary: #5c6678;
+  --color-text-muted: #8b95a5;
+  --color-border: #dfe3ea;
+  --color-border-light: #eef1f5;
 }
 
 :root {
-  --background: var(--color-paper);
+  --background: var(--color-surface);
   --foreground: var(--color-text);
-  --radius-card: 255px 15px 225px 15px / 15px 225px 15px 255px;
-  /* Sketchy radius */
+  --gradient-accent: linear-gradient(90deg, var(--color-coral) 0%, var(--color-lavender) 100%);
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --shadow-card: 0 1px 3px rgb(26 35 50 / 0.06), 0 4px 12px rgb(26 35 50 / 0.04);
 }
 
 body {
   background-color: var(--background);
-  background-image: url('/images/watercolor-paper.svg');
-  background-blend-mode: multiply;
   color: var(--foreground);
-  font-family: var(--font-comica, 'Comica', sans-serif);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
-  letter-spacing: 0.05em;
+  color: var(--color-text);
+  line-height: 1.25;
 }
 
 @layer utilities {
-  .sketch-card {
-    background-color: white;
-    border-radius: 40px 50px 45px 55px;
-    /* Bubbly, soft corners */
-    border: 3px solid var(--color-primary);
-    /* Making border slightly thicker and purple for pop */
-    padding: 2rem;
-    box-shadow: 4px 6px 0px rgba(157, 114, 255, 0.2);
-    transition: all 0.3s ease;
+  .text-balance {
+    text-wrap: balance;
   }
 
-  .sketch-card:hover {
-    transform: translateY(-4px) scale(1.01);
-    box-shadow: 6px 8px 0px rgba(159, 125, 168, 0.3);
-    border-radius: 50px 40px 55px 45px;
-    /* Slight morph on hover */
+  .text-pretty {
+    text-wrap: pretty;
   }
 
-  .sketch-btn {
-    border-radius: 60px 50px 70px 60px;
-    /* Very bubbly buttons */
-    border: 2px solid #2D2D2D;
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
-    font-weight: 700;
-    transition: all 0.2s ease-in-out;
+  .font-brand {
+    font-family: var(--font-brand);
+    letter-spacing: 0.06em;
   }
 
-  .sketch-btn:hover {
-    transform: scale(1.05);
-    border-radius: 50px 60px 50px 70px;
-    /* Bubbly morph */
+  .accent-line {
+    height: 3px;
+    width: 48px;
+    background: var(--gradient-accent);
+    border-radius: 2px;
   }
 
-  /* Text marker highlight effect */
-  .marker-highlight {
-    position: relative;
-    white-space: nowrap;
-    z-index: 1;
+  .accent-line-center {
+    height: 3px;
+    width: 48px;
+    background: var(--gradient-accent);
+    border-radius: 2px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
-  .marker-highlight::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: -5%;
-    width: 110%;
-    height: 60%;
-    background-color: var(--color-secondary);
-    opacity: 0.3;
-    z-index: -1;
-    transform: translateY(-20%) rotate(-1deg);
-    border-radius: 4px;
+  .gradient-accent-text {
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .section-padding {
+    @apply py-16 md:py-24 px-6;
+  }
+
+  .container-wide {
+    @apply max-w-6xl mx-auto;
+  }
+
+  .card-medical {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+  }
+
+  .label-caps {
+    font-family: var(--font-brand);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-lavender);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
