@@ -3,32 +3,23 @@ import { ReactNode } from "react";
 interface SectionHeadingProps {
   title: string;
   subtitle?: string;
-  align?: "left" | "center";
-  accent?: boolean;
+  brand?: boolean;
   children?: ReactNode;
 }
 
-export function SectionHeading({
-  title,
-  subtitle,
-  align = "left",
-  accent = false,
-  children,
-}: SectionHeadingProps) {
-  const alignClass = align === "center" ? "text-center mx-auto items-center" : "text-left items-start";
-
+export function SectionHeading({ title, subtitle, brand = false, children }: SectionHeadingProps) {
   return (
-    <div className={`flex flex-col max-w-2xl mb-10 md:mb-14 ${alignClass}`}>
-      <div className={`accent-line mb-5 ${align === "center" ? "accent-line-center" : ""}`} />
+    <div className="mb-10 md:mb-12 max-w-2xl">
+      {brand && <div className="accent-rule mb-4" />}
       <h2
-        className={`font-[family-name:var(--font-heading)] text-2xl md:text-3xl lg:text-[2rem] font-semibold text-[var(--color-text)] text-balance ${
-          accent ? "gradient-accent-text" : ""
+        className={`text-2xl md:text-[1.75rem] font-semibold text-[var(--color-plum)] text-balance ${
+          brand ? "font-brand text-xl md:text-2xl font-bold" : ""
         }`}
       >
         {title}
       </h2>
       {subtitle && (
-        <p className="mt-3 text-[var(--color-text-secondary)] text-pretty leading-relaxed max-w-[60ch] text-base md:text-[1.0625rem]">
+        <p className="mt-3 text-[var(--color-plum-light)] text-pretty leading-relaxed">
           {subtitle}
         </p>
       )}

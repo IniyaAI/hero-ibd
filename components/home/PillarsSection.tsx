@@ -1,70 +1,66 @@
-import { HeartHandshake, GraduationCap, Megaphone } from "lucide-react";
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 import { SectionHeading } from "../ui/SectionHeading";
 
 const pillars = [
   {
-    icon: HeartHandshake,
     title: "Support",
-    description:
-      "Uplifting individuals and families through care packages, flare kits, micro-grants, and financial assistance that eases the day-to-day burdens of long-term conditions.",
-    href: "/programs#support",
     accent: "var(--color-coral)",
-    bg: "var(--color-coral-soft)",
+    description:
+      "Care packages, flare kits, micro-grants, and financial assistance for individuals and families navigating long-term conditions.",
+    href: "/programs#support",
   },
   {
-    icon: GraduationCap,
     title: "Education",
-    description:
-      "Delivering clear, accessible information through school presentations, digital resources, and expert-informed content for students, families, and educators.",
-    href: "/programs#education",
     accent: "var(--color-lavender)",
-    bg: "var(--color-lavender-soft)",
+    description:
+      "School presentations, digital resources, and expert-informed content for students, families, and educators.",
+    href: "/programs#education",
   },
   {
-    icon: Megaphone,
     title: "Awareness",
+    accent: "var(--color-lavender-deep)",
     description:
-      "Increasing visibility for chronic and invisible illnesses through community campaigns, events, and outreach that reduces stigma and promotes understanding.",
+      "Community campaigns, events, and outreach that reduce stigma and make invisible illnesses visible.",
     href: "/programs#awareness",
-    accent: "var(--color-navy-mid)",
-    bg: "var(--color-subtle)",
   },
 ];
 
 export function PillarsSection() {
   return (
-    <section className="section-padding bg-white">
-      <div className="container-wide">
+    <section className="section-padding">
+      <div className="container-full">
         <SectionHeading
-          title="Our Mission Pillars"
-          subtitle="Three interconnected areas of focus guide every program, partnership, and initiative we undertake."
-          align="center"
+          brand
+          title="What we do"
+          subtitle="Every program falls under one of three pillars. Each one connects awareness to real support."
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {pillars.map((pillar) => (
-            <Link
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-0 lg:gap-8 xl:gap-12 border-t hairline lg:border-t-0 pt-8 lg:pt-0">
+          {pillars.map((pillar, index) => (
+            <article
               key={pillar.title}
-              href={pillar.href}
-              className="group card-medical p-7 md:p-8 flex flex-col h-full hover:border-[var(--color-lavender)]/40 transition-colors"
+              className={`py-8 lg:py-0 ${
+                index > 0 ? "border-t hairline lg:border-t-0 lg:border-l lg:pl-8 xl:pl-12" : ""
+              }`}
             >
-              <div
-                className="size-11 rounded-[var(--radius-md)] flex items-center justify-center mb-5"
-                style={{ backgroundColor: pillar.bg }}
+              <span
+                className="font-brand text-xs block mb-4"
+                style={{ color: pillar.accent }}
               >
-                <pillar.icon size={22} style={{ color: pillar.accent }} strokeWidth={1.75} />
-              </div>
-              <h3 className="font-[family-name:var(--font-heading)] text-lg font-semibold text-[var(--color-navy)] mb-3">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <h3 className="text-lg font-semibold text-[var(--color-plum)] mb-3">
                 {pillar.title}
               </h3>
-              <p className="text-[var(--color-text-secondary)] text-sm leading-relaxed flex-1">
+              <p className="text-[var(--color-plum-light)] text-pretty leading-relaxed mb-5">
                 {pillar.description}
               </p>
-              <span className="mt-5 text-sm font-semibold text-[var(--color-coral)] group-hover:underline">
-                Learn more
-              </span>
-            </Link>
+              <Link href={pillar.href} className="link-arrow">
+                Programs
+                <ArrowUpRight size={14} />
+              </Link>
+            </article>
           ))}
         </div>
       </div>

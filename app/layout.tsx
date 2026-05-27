@@ -42,7 +42,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${plusJakarta.variable} ${sourceSans.variable} ${montserrat.variable} antialiased font-[family-name:var(--font-body)] text-[var(--color-text)]`}
+        className={`${plusJakarta.variable} ${sourceSans.variable} ${montserrat.variable} antialiased font-[family-name:var(--font-body)] text-[var(--color-plum)]`}
       >
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-FXNGDRSD9B"

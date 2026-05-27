@@ -12,9 +12,9 @@ const upcomingEvents = [
     title: "5K Walk/Run",
     date: "May 23, 2026",
     time: "More details coming soon",
-    location: "DFW Area",
+    location: "DFW area",
     description:
-      "In partnership with the STAR Foundation for Athletic Recovery and PowerPlay. Supporting chronic illness awareness and athletic recovery.",
+      "In partnership with the STAR Foundation for Athletic Recovery and PowerPlay.",
     registerUrl: "https://forms.gle/omnufq3TjZtp4ssH8",
   },
 ];
@@ -27,10 +27,8 @@ const pastEvents = [
     metrics: [
       { label: "Raised", value: "$700" },
       { label: "Beneficiary", value: "CCF" },
-      { label: "Sponsor", value: "CUTX" },
     ],
-    description:
-      "Community tournament raising funds for the Crohn's & Colitis Foundation.",
+    description: "Fundraiser for the Crohn's & Colitis Foundation.",
   },
   {
     title: "Sports Inclusivity Seminar",
@@ -40,96 +38,74 @@ const pastEvents = [
       { label: "Attendees", value: "65+" },
       { label: "Speaker", value: "Dr. Gurram" },
     ],
-    description:
-      "Seminar with Pediatric Gastroenterologist Dr. Bhaskar Gurram on sports inclusivity.",
+    description: "Seminar with Dr. Bhaskar Gurram on sports and chronic conditions.",
   },
   {
     title: "HEARD Awareness Campaign",
     date: "2024",
     image: "https://picsum.photos/seed/heard-past/800/500",
-    metrics: [
-      { label: "Reach", value: "1000s" },
-      { label: "Type", value: "School Event" },
-    ],
-    description: "School-based awareness campaign for chronic illness education.",
+    metrics: [{ label: "Type", value: "School event" }],
+    description: "School-based chronic illness education campaign.",
   },
 ];
 
 export default function EventsPage() {
-  const [expandedPast, setExpandedPast] = useState<number | null>(0);
+  const [expandedPast, setExpandedPast] = useState<number | null>(null);
 
   return (
     <>
       <Navbar />
       <main>
-        <PageHeader
-          title="Events"
-          description="Join us at upcoming events or explore our past community impact."
-        />
+        <PageHeader title="Events" description="Upcoming registration and past community programs." />
 
-        <section className="section-padding bg-white">
-          <div className="container-wide">
-            <h2 className="font-[family-name:var(--font-heading)] text-lg font-semibold text-[var(--color-navy)] mb-6">
-              Upcoming
-            </h2>
-            <div className="space-y-4 mb-16">
-              {upcomingEvents.map((event) => (
-                <article key={event.title} className="card-medical p-6 md:p-8">
-                  <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
-                    <div>
-                      <h3 className="text-xl font-semibold text-[var(--color-navy)]">{event.title}</h3>
-                      <p className="text-sm font-medium text-[var(--color-coral)] mt-1">{event.date}</p>
-                    </div>
-                    <Button href={event.registerUrl} external size="sm">
-                      Register
-                    </Button>
-                  </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-[var(--color-text-secondary)] mb-4">
-                    <p><span className="font-semibold text-[var(--color-navy)]">Time:</span> {event.time}</p>
-                    <p><span className="font-semibold text-[var(--color-navy)]">Location:</span> {event.location}</p>
-                  </div>
-                  <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed">{event.description}</p>
-                </article>
-              ))}
-            </div>
+        <section className="section-padding">
+          <div className="container-full">
+            <h2 className="text-lg font-semibold text-[var(--color-plum)] mb-6">Upcoming</h2>
+            {upcomingEvents.map((event) => (
+              <article key={event.title} className="pb-10 mb-10 border-b hairline last:border-0 last:mb-0 last:pb-0">
+                <p className="text-sm text-[var(--color-plum-muted)] mb-1">{event.date}</p>
+                <h3 className="text-xl font-semibold text-[var(--color-plum)] mb-3">{event.title}</h3>
+                <p className="text-sm text-[var(--color-plum-light)] mb-4 max-w-prose">{event.description}</p>
+                <p className="text-sm text-[var(--color-plum-muted)] mb-6">
+                  {event.time} · {event.location}
+                </p>
+                <Button href={event.registerUrl} external size="sm">Register</Button>
+              </article>
+            ))}
 
-            <h2 className="font-[family-name:var(--font-heading)] text-lg font-semibold text-[var(--color-navy)] mb-6">
-              Past Events
-            </h2>
-            <div className="space-y-4">
+            <h2 className="text-lg font-semibold text-[var(--color-plum)] mb-6 mt-14">Past</h2>
+            <div className="divide-y hairline border-t hairline">
               {pastEvents.map((event, index) => (
-                <article key={event.title} className="card-medical overflow-hidden">
+                <article key={event.title}>
                   <button
                     type="button"
                     onClick={() => setExpandedPast(expandedPast === index ? null : index)}
-                    className="w-full text-left"
+                    className="w-full py-6 flex items-center justify-between gap-4 text-left"
                   >
-                    <div className="flex flex-col sm:flex-row">
-                      <div className="relative sm:w-48 md:w-56 aspect-video sm:aspect-auto sm:min-h-[120px] shrink-0">
-                        <Image src={event.image} alt={event.title} fill className="object-cover" />
-                      </div>
-                      <div className="p-5 flex-1 flex items-center justify-between gap-4">
-                        <div>
-                          <h3 className="font-semibold text-[var(--color-navy)]">{event.title}</h3>
-                          <p className="text-sm text-[var(--color-text-muted)]">{event.date}</p>
-                        </div>
-                        <span className="text-xs font-semibold text-[var(--color-coral)] shrink-0">
-                          {expandedPast === index ? "Hide" : "Details"}
-                        </span>
-                      </div>
+                    <div>
+                      <h3 className="font-semibold text-[var(--color-plum)]">{event.title}</h3>
+                      <p className="text-sm text-[var(--color-plum-muted)]">{event.date}</p>
                     </div>
+                    <span className="text-sm text-[var(--color-coral)] shrink-0">
+                      {expandedPast === index ? "Close" : "Details"}
+                    </span>
                   </button>
                   {expandedPast === index && (
-                    <div className="px-5 pb-5 border-t border-[var(--color-border-light)] pt-4">
-                      <div className="flex flex-wrap gap-6 mb-3">
-                        {event.metrics.map((m) => (
-                          <div key={m.label}>
-                            <p className="text-lg font-bold text-[var(--color-navy)] tabular-nums">{m.value}</p>
-                            <p className="text-xs text-[var(--color-text-muted)]">{m.label}</p>
-                          </div>
-                        ))}
+                    <div className="pb-6 grid grid-cols-1 md:grid-cols-[240px_1fr] gap-6">
+                      <div className="relative aspect-[3/2] bg-[var(--color-line)]">
+                        <Image src={event.image} alt={event.title} fill className="object-cover" />
                       </div>
-                      <p className="text-sm text-[var(--color-text-secondary)]">{event.description}</p>
+                      <div>
+                        <dl className="flex flex-wrap gap-x-8 gap-y-2 mb-4 text-sm">
+                          {event.metrics.map((m) => (
+                            <div key={m.label}>
+                              <dt className="text-[var(--color-plum-muted)]">{m.label}</dt>
+                              <dd className="font-semibold text-[var(--color-plum)] tabular-nums">{m.value}</dd>
+                            </div>
+                          ))}
+                        </dl>
+                        <p className="text-sm text-[var(--color-plum-light)]">{event.description}</p>
+                      </div>
                     </div>
                   )}
                 </article>

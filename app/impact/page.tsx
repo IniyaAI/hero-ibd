@@ -2,14 +2,16 @@ import Image from "next/image";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { PageHeader } from "@/components/ui/PageHeader";
-import { StatsBar } from "@/components/ui/StatCard";
+import { Button } from "@/components/ui/Button";
+import { StatsRow } from "@/components/ui/StatCard";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
 const stats = [
-  { value: "162,347+", label: "People Reached" },
-  { value: "15+", label: "Events Hosted" },
-  { value: "3+", label: "Communities Engaged" },
-  { value: "$1,500+", label: "Funds Raised" },
+  { value: "162,347+", label: "People reached" },
+  { value: "15+", label: "Events hosted" },
+  { value: "3+", label: "Communities engaged" },
+  { value: "$1,500+", label: "Funds raised" },
+  { value: "65+", label: "Patients supported" },
 ];
 
 const testimonials = [
@@ -17,19 +19,19 @@ const testimonials = [
     quote:
       "Heart to Heart's presentation helped our students understand invisible illnesses in a way textbooks never could.",
     name: "Educator",
-    role: "High School Teacher",
+    role: "High school teacher",
   },
   {
     quote:
       "Learning about chronic illness awareness from peers made the topic feel real and important to our community.",
-    name: "Student Leader",
-    role: "HOSA Chapter Member",
+    name: "Student leader",
+    role: "HOSA chapter member",
   },
   {
     quote:
-      "The care packages and support initiatives show that someone truly understands what families go through.",
-    name: "Community Member",
-    role: "Patient Family",
+      "The care packages show that someone truly understands what families go through.",
+    name: "Community member",
+    role: "Patient family",
   },
 ];
 
@@ -40,22 +42,27 @@ export default function ImpactPage() {
       <main>
         <PageHeader
           title="Impact"
-          description="Measurable outcomes from youth-led action and community partnership across the DFW area."
+          description="Outcomes from youth-led action and community partnership across the DFW area."
         />
-        <StatsBar stats={[...stats, { value: "65+", label: "Patients Supported" }]} />
 
-        <section className="section-padding bg-white">
-          <div className="container-wide">
-            <SectionHeading title="Testimonials" align="center" />
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <section className="section-padding border-b hairline">
+          <div className="container-full">
+            <StatsRow stats={stats} bordered={false} />
+          </div>
+        </section>
+
+        <section className="section-padding">
+          <div className="container-full">
+            <SectionHeading title="What people say" />
+            <div className="space-y-8 max-w-2xl">
               {testimonials.map((t) => (
-                <blockquote key={t.name} className="card-medical p-6 md:p-7">
-                  <p className="text-[var(--color-text-secondary)] text-sm leading-relaxed mb-4">
+                <blockquote key={t.name} className="border-l-2 border-[var(--color-line-strong)] pl-5">
+                  <p className="text-[var(--color-plum-light)] text-pretty leading-relaxed">
                     &ldquo;{t.quote}&rdquo;
                   </p>
-                  <footer>
-                    <p className="text-sm font-semibold text-[var(--color-navy)]">{t.name}</p>
-                    <p className="text-xs text-[var(--color-text-muted)]">{t.role}</p>
+                  <footer className="mt-3 text-sm">
+                    <span className="font-medium text-[var(--color-plum)]">{t.name}</span>
+                    <span className="text-[var(--color-plum-muted)]">, {t.role}</span>
                   </footer>
                 </blockquote>
               ))}
@@ -63,12 +70,12 @@ export default function ImpactPage() {
           </div>
         </section>
 
-        <section className="section-padding bg-[var(--color-subtle)]">
-          <div className="container-wide">
-            <SectionHeading title="Event Gallery" align="center" />
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <section className="section-padding bg-[var(--color-wash)] border-t hairline">
+          <div className="container-full">
+            <SectionHeading title="Event photos" />
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
               {Array.from({ length: 8 }, (_, i) => (
-                <div key={i} className="relative aspect-square rounded-[var(--radius-md)] overflow-hidden border border-[var(--color-border)]">
+                <div key={i} className="relative aspect-square bg-[var(--color-line)]">
                   <Image
                     src={`https://picsum.photos/seed/impact-event-${i}/400/400`}
                     alt="Heart to Heart event"

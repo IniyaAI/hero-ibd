@@ -30,20 +30,15 @@ export function ContactForm({ subject = "General Inquiry" }: ContactFormProps) {
   }
 
   const inputClass =
-    "w-full rounded-[var(--radius-sm)] border border-[var(--color-border)] px-4 py-2.5 text-[var(--color-text)] text-sm placeholder:text-[var(--color-text-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--color-lavender)]/25 focus:border-[var(--color-lavender)] bg-white";
+    "w-full rounded-[var(--radius)] border hairline px-3 py-2.5 text-sm text-[var(--color-plum)] placeholder:text-[var(--color-plum-muted)] focus:outline-none focus:border-[var(--color-lavender)] bg-white";
 
   if (submitted) {
     return (
-      <div className="card-medical p-8 text-center">
-        <p className="text-lg font-semibold text-[var(--color-navy)]">
-          Thank you for reaching out.
-        </p>
-        <p className="mt-2 text-sm text-[var(--color-text-secondary)]">
-          Your email client should open shortly. You can also email us at{" "}
-          <a
-            href="mailto:npo.heart2heart@gmail.com"
-            className="text-[var(--color-coral)] hover:underline font-medium"
-          >
+      <div className="border hairline p-8 text-center bg-white">
+        <p className="font-semibold text-[var(--color-plum)]">Thank you for reaching out.</p>
+        <p className="mt-2 text-sm text-[var(--color-plum-light)]">
+          Your email client should open shortly, or write to{" "}
+          <a href="mailto:npo.heart2heart@gmail.com" className="text-[var(--color-coral-deep)] hover:underline">
             npo.heart2heart@gmail.com
           </a>
         </p>
@@ -52,52 +47,32 @@ export function ContactForm({ subject = "General Inquiry" }: ContactFormProps) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="card-medical p-6 md:p-8 space-y-5">
+    <form onSubmit={handleSubmit} className="space-y-5">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         <div className="space-y-1.5">
-          <label htmlFor="name" className="block text-sm font-semibold text-[var(--color-navy)]">
-            Name
-          </label>
-          <input id="name" name="name" type="text" required className={inputClass} placeholder="Your name" />
+          <label htmlFor="name" className="block text-sm font-medium text-[var(--color-plum)]">Name</label>
+          <input id="name" name="name" type="text" required className={inputClass} />
         </div>
         <div className="space-y-1.5">
-          <label htmlFor="email" className="block text-sm font-semibold text-[var(--color-navy)]">
-            Email
-          </label>
-          <input id="email" name="email" type="email" required className={inputClass} placeholder="you@example.com" />
+          <label htmlFor="email" className="block text-sm font-medium text-[var(--color-plum)]">Email</label>
+          <input id="email" name="email" type="email" required className={inputClass} />
         </div>
       </div>
-
       <div className="space-y-1.5">
-        <label htmlFor="inquiryType" className="block text-sm font-semibold text-[var(--color-navy)]">
-          Inquiry Type
-        </label>
+        <label htmlFor="inquiryType" className="block text-sm font-medium text-[var(--color-plum)]">Inquiry type</label>
         <select id="inquiryType" name="inquiryType" className={inputClass}>
           <option value="Partnership">Partnership</option>
           <option value="Volunteer">Volunteer</option>
           <option value="Sponsorship">Sponsorship</option>
           <option value="Donation">Donation</option>
-          <option value="General">General Question</option>
+          <option value="General">General question</option>
         </select>
       </div>
-
       <div className="space-y-1.5">
-        <label htmlFor="message" className="block text-sm font-semibold text-[var(--color-navy)]">
-          Message
-        </label>
-        <textarea
-          id="message"
-          name="message"
-          rows={5}
-          required
-          className={`${inputClass} resize-y`}
-          placeholder="Tell us how we can help..."
-        />
+        <label htmlFor="message" className="block text-sm font-medium text-[var(--color-plum)]">Message</label>
+        <textarea id="message" name="message" rows={5} required className={`${inputClass} resize-y`} />
       </div>
-
-      <Button type="submit" variant="primary">
-        Send Inquiry
-      </Button>
+      <Button type="submit">Send inquiry</Button>
     </form>
   );
 }

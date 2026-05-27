@@ -7,13 +7,13 @@ const founders = [
   {
     name: "Founder Name",
     title: "Co-Founder & President",
-    bio: "Passionate about medicine and community health advocacy, leading Heart to Heart's mission to support those affected by chronic illness.",
+    bio: "Leads Heart to Heart's mission to support those affected by chronic illness through community health advocacy.",
     image: "https://picsum.photos/seed/founder-1/400/400",
   },
   {
     name: "Founder Name",
     title: "Co-Founder & Vice President",
-    bio: "Dedicated to breaking stigma around invisible illnesses through storytelling, education, and youth-led outreach programs.",
+    bio: "Focuses on education and outreach programs that break stigma around invisible illnesses.",
     image: "https://picsum.photos/seed/founder-2/400/400",
   },
 ];
@@ -24,16 +24,13 @@ export default function AboutPage() {
       <Navbar />
       <main>
         <PageHeader
-          title="About Us"
-          description="Heart to Heart was founded by students who saw firsthand how chronic illnesses remain unheard, stigmatized, and under-supported."
+          title="About us"
+          description="Heart to Heart was founded by students who saw how chronic illnesses remain unheard, stigmatized, and under-supported."
         />
 
-        <section className="section-padding bg-white">
-          <div className="container-wide max-w-3xl">
-            <h2 className="font-[family-name:var(--font-heading)] text-xl font-semibold text-[var(--color-navy)] mb-6">
-              Our Story
-            </h2>
-            <div className="space-y-5 text-[var(--color-text-secondary)] leading-relaxed text-pretty">
+        <section className="section-padding">
+          <div className="container-full max-w-2xl">
+            <div className="space-y-5 text-[var(--color-plum-light)] text-pretty leading-relaxed">
               <p>
                 Heart to Heart was born from our passion for helping others and our
                 growing interest in medicine. Early on, we were drawn to understanding
@@ -60,27 +57,19 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="section-padding bg-[var(--color-subtle)]">
-          <div className="container-wide">
-            <h2 className="font-[family-name:var(--font-heading)] text-xl font-semibold text-[var(--color-navy)] mb-8 text-center">
-              Our Team
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+        <section className="section-padding bg-[var(--color-wash)] border-t hairline">
+          <div className="container-full">
+            <h2 className="font-brand text-xl font-bold text-[var(--color-plum)] mb-8">Our team</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-3xl">
               {founders.map((founder) => (
-                <article key={founder.title} className="card-medical overflow-hidden">
-                  <div className="relative aspect-[4/3] max-h-56">
+                <article key={founder.title} className="grid grid-cols-[96px_1fr] gap-5">
+                  <div className="relative size-24 shrink-0">
                     <Image src={founder.image} alt={founder.name} fill className="object-cover" />
                   </div>
-                  <div className="p-6">
-                    <h3 className="font-[family-name:var(--font-heading)] text-lg font-semibold text-[var(--color-navy)]">
-                      {founder.name}
-                    </h3>
-                    <p className="text-sm font-medium text-[var(--color-coral)] mt-0.5 mb-3">
-                      {founder.title}
-                    </p>
-                    <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed">
-                      {founder.bio}
-                    </p>
+                  <div>
+                    <h3 className="font-semibold text-[var(--color-plum)]">{founder.name}</h3>
+                    <p className="text-sm text-[var(--color-coral-deep)] mt-0.5 mb-2">{founder.title}</p>
+                    <p className="text-sm text-[var(--color-plum-light)] leading-relaxed">{founder.bio}</p>
                   </div>
                 </article>
               ))}

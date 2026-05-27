@@ -5,14 +5,14 @@ interface PageHeaderProps {
 
 export function PageHeader({ title, description }: PageHeaderProps) {
   return (
-    <div className="bg-[var(--color-subtle)] border-b border-[var(--color-border-light)]">
-      <div className="container-wide px-6 py-12 md:py-16">
-        <div className="accent-line mb-5" />
-        <h1 className="font-[family-name:var(--font-heading)] text-3xl md:text-4xl font-semibold text-[var(--color-text)] text-balance max-w-3xl">
+    <div className="border-b hairline bg-[var(--color-wash)]">
+      <div className="container-full py-10 md:py-14">
+        <div className="accent-rule mb-5" />
+        <h1 className="font-brand text-2xl md:text-[1.875rem] xl:text-[2.125rem] font-bold text-[var(--color-plum)] text-balance max-w-3xl">
           {title}
         </h1>
         {description && (
-          <p className="mt-4 text-[var(--color-text-secondary)] text-pretty leading-relaxed max-w-2xl text-lg">
+          <p className="mt-4 text-[var(--color-plum-light)] text-pretty leading-relaxed max-w-2xl">
             {description}
           </p>
         )}

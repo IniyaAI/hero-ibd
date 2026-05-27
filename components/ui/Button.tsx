@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ReactNode } from "react";
 
-type ButtonVariant = "primary" | "secondary" | "outline" | "ghost";
+type ButtonVariant = "primary" | "secondary" | "outline";
 
 interface ButtonProps {
   href?: string;
@@ -16,13 +16,11 @@ interface ButtonProps {
 
 const variants: Record<ButtonVariant, string> = {
   primary:
-    "bg-[var(--color-coral)] text-white hover:bg-[#b85a52] border border-[var(--color-coral)]",
+    "bg-[var(--color-coral)] text-white hover:bg-[var(--color-coral-hover)] border border-transparent",
   secondary:
-    "bg-[var(--color-navy)] text-white hover:bg-[var(--color-navy-mid)] border border-[var(--color-navy)]",
+    "bg-[var(--color-lavender)] text-white hover:bg-[var(--color-lavender-deep)] border border-transparent",
   outline:
-    "bg-white text-[var(--color-navy)] border border-[var(--color-border)] hover:border-[var(--color-navy)] hover:bg-[var(--color-subtle)]",
-  ghost:
-    "bg-transparent text-[var(--color-coral)] border border-transparent hover:bg-[var(--color-coral-soft)]",
+    "bg-transparent text-[var(--color-plum)] border border-[var(--color-line-strong)] hover:border-[var(--color-lavender)] hover:text-[var(--color-lavender-deep)]",
 };
 
 export function Button({
@@ -35,11 +33,8 @@ export function Button({
   type = "button",
   size = "default",
 }: ButtonProps) {
-  const sizeClass =
-    size === "sm" ? "px-4 py-2 text-sm" : "px-5 py-2.5 text-sm md:text-[0.9375rem]";
-
-  const base = `inline-flex items-center justify-center gap-1.5 rounded-[var(--radius-sm)] font-semibold transition-colors duration-150 active:scale-[0.98] whitespace-nowrap ${sizeClass}`;
-
+  const sizeClass = size === "sm" ? "px-4 py-2 text-sm" : "px-5 py-2.5 text-sm";
+  const base = `inline-flex items-center justify-center gap-1.5 rounded-[var(--radius)] font-semibold transition-colors duration-150 whitespace-nowrap ${sizeClass}`;
   const classes = `${base} ${variants[variant]} ${className}`;
 
   if (href) {
@@ -50,11 +45,7 @@ export function Button({
         </a>
       );
     }
-    return (
-      <Link href={href} className={classes}>
-        {children}
-      </Link>
-    );
+    return <Link href={href} className={classes}>{children}</Link>;
   }
 
   return (

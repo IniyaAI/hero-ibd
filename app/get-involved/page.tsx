@@ -1,4 +1,4 @@
-import { Mail, Users, Handshake, Heart, CheckCircle2 } from "lucide-react";
+import { Mail } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { PageHeader } from "@/components/ui/PageHeader";
@@ -7,21 +7,18 @@ import { ContactForm } from "@/components/ui/ContactForm";
 
 const involvementOptions = [
   {
-    icon: Users,
     title: "Volunteer",
-    description: "Help at events, support donation drives, and assist with community outreach.",
+    description: "Help at events, donation drives, and community outreach.",
     href: "#contact",
   },
   {
-    icon: Handshake,
     title: "Partner",
-    description: "Collaborate on school programs, community campaigns, and awareness initiatives.",
+    description: "Collaborate on school programs and awareness campaigns in DFW.",
     href: "#contact",
   },
   {
-    icon: Heart,
-    title: "Sponsor or Donate",
-    description: "Support our mission through event sponsorship or direct donations.",
+    title: "Sponsor or donate",
+    description: "Fund patient programs through event sponsorship or direct giving.",
     href: "#donate",
   },
 ];
@@ -39,68 +36,49 @@ export default function GetInvolvedPage() {
       <Navbar />
       <main>
         <PageHeader
-          title="Get Involved"
-          description="Every contribution of time, partnership, or funding helps us reach more people affected by chronic illness."
+          title="Get involved"
+          description="Time, partnership, or funding all help us reach more people affected by chronic illness."
         />
 
-        <section className="section-padding bg-white">
-          <div className="container-wide">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-              {involvementOptions.map((option) => (
-                <article key={option.title} className="card-medical p-6 flex flex-col">
-                  <div className="size-10 rounded-[var(--radius-sm)] bg-[var(--color-coral-soft)] flex items-center justify-center mb-4">
-                    <option.icon size={20} className="text-[var(--color-coral)]" />
-                  </div>
-                  <h3 className="font-[family-name:var(--font-heading)] font-semibold text-[var(--color-navy)] mb-2">
-                    {option.title}
-                  </h3>
-                  <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed flex-1 mb-5">
-                    {option.description}
-                  </p>
-                  <Button href={option.href} variant="outline" size="sm">
-                    Learn More
-                  </Button>
-                </article>
-              ))}
-            </div>
+        <section className="section-padding">
+          <div className="container-full divide-y hairline border-t border-b hairline">
+            {involvementOptions.map((option) => (
+              <article key={option.title} className="py-8 grid grid-cols-1 md:grid-cols-[200px_1fr_auto] gap-4 items-start">
+                <h3 className="font-semibold text-[var(--color-plum)]">{option.title}</h3>
+                <p className="text-[var(--color-plum-light)] text-sm leading-relaxed">{option.description}</p>
+                <Button href={option.href} variant="outline" size="sm">
+                  Learn more
+                </Button>
+              </article>
+            ))}
           </div>
         </section>
 
-        <section id="donate" className="section-padding bg-[var(--color-subtle)] scroll-mt-28">
-          <div className="container-wide max-w-2xl mx-auto text-center">
-            <div className="accent-line-center mb-5" />
-            <h2 className="font-[family-name:var(--font-heading)] text-2xl font-semibold text-[var(--color-navy)] mb-3">
-              Donate
-            </h2>
-            <p className="text-[var(--color-text-secondary)] mb-8 leading-relaxed">
+        <section id="donate" className="section-padding bg-[var(--color-wash)] scroll-mt-20 border-t hairline">
+          <div className="container-full max-w-2xl">
+            <h2 className="font-brand text-lg font-bold text-[var(--color-plum)] mb-3">Donate</h2>
+            <p className="text-[var(--color-plum-light)] mb-8 leading-relaxed">
               100% of your donation goes directly to programs supporting patients,
               research, and advocacy. Never to personal profit.
             </p>
-            <div className="card-medical p-6 text-left mb-8">
-              <ul className="space-y-2">
-                {fundUses.map((item) => (
-                  <li key={item} className="flex items-start gap-2 text-sm text-[var(--color-text-secondary)]">
-                    <CheckCircle2 size={15} className="text-[var(--color-coral)] mt-0.5 shrink-0" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <Button href="mailto:npo.heart2heart@gmail.com?subject=Donation%20Inquiry" variant="primary">
-              Donate via Email
+            <ul className="space-y-2 mb-8 text-sm text-[var(--color-plum-light)]">
+              {fundUses.map((item) => (
+                <li key={item} className="pl-4 border-l-2 border-[var(--color-line-strong)]">{item}</li>
+              ))}
+            </ul>
+            <Button href="mailto:npo.heart2heart@gmail.com?subject=Donation%20Inquiry">
+              Donate via email
             </Button>
           </div>
         </section>
 
-        <section id="contact" className="section-padding bg-white scroll-mt-28">
-          <div className="container-wide max-w-xl mx-auto">
-            <h2 className="font-[family-name:var(--font-heading)] text-xl font-semibold text-[var(--color-navy)] mb-6 text-center">
-              Contact Us
-            </h2>
+        <section id="contact" className="section-padding scroll-mt-20">
+          <div className="container-full max-w-lg">
+            <h2 className="text-xl font-semibold text-[var(--color-plum)] mb-6">Contact us</h2>
             <ContactForm subject="Get Involved Inquiry" />
-            <p className="mt-6 text-center">
-              <a href="mailto:npo.heart2heart@gmail.com" className="inline-flex items-center gap-2 text-sm text-[var(--color-coral)] font-medium hover:underline">
-                <Mail size={15} />
+            <p className="mt-6 text-sm text-[var(--color-plum-muted)]">
+              <a href="mailto:npo.heart2heart@gmail.com" className="inline-flex items-center gap-1.5 text-[var(--color-coral)] hover:underline">
+                <Mail size={14} />
                 npo.heart2heart@gmail.com
               </a>
             </p>

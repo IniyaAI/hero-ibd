@@ -1,68 +1,39 @@
-interface StatCardProps {
+interface StatItemProps {
   value: string;
   label: string;
-  detail?: string;
-  variant?: "light" | "dark";
 }
 
-export function StatCard({ value, label, detail, variant = "light" }: StatCardProps) {
-  const isDark = variant === "dark";
-
+export function StatItem({ value, label }: StatItemProps) {
   return (
-    <div
-      className={`text-left ${isDark ? "text-white" : ""}`}
-    >
-      <p
-        className={`font-[family-name:var(--font-heading)] text-3xl md:text-4xl font-bold tabular-nums ${
-          isDark ? "text-white" : "text-[var(--color-navy)]"
-        }`}
-      >
+    <div>
+      <p className="font-[family-name:var(--font-heading)] text-2xl md:text-3xl font-semibold text-[var(--color-plum)] tabular-nums">
         {value}
       </p>
-      <p
-        className={`mt-1.5 text-sm font-semibold ${
-          isDark ? "text-white/80" : "text-[var(--color-text-secondary)]"
-        }`}
-      >
-        {label}
-      </p>
-      {detail && (
-        <p
-          className={`mt-2 text-xs leading-relaxed ${
-            isDark ? "text-white/60" : "text-[var(--color-text-muted)]"
-          }`}
-        >
-          {detail}
-        </p>
-      )}
+      <p className="mt-1 text-sm text-[var(--color-plum-muted)]">{label}</p>
     </div>
   );
 }
 
-interface StatsBarProps {
-  stats: { value: string; label: string }[];
+interface StatsRowProps {
+  stats: StatItemProps[];
+  bordered?: boolean;
 }
 
-export function StatsBar({ stats }: StatsBarProps) {
+export function StatsRow({ stats, bordered = true }: StatsRowProps) {
   const cols =
-    stats.length >= 5
+    stats.length === 5
       ? "grid-cols-2 sm:grid-cols-3 lg:grid-cols-5"
-      : "grid-cols-2 lg:grid-cols-4";
+      : "grid-cols-2 md:grid-cols-4";
 
   return (
-    <section className="bg-[var(--color-navy)]">
-      <div className="container-wide px-6 py-10 md:py-12">
-        <div className={`grid ${cols} gap-8 lg:gap-6`}>
-          {stats.map((stat, i) => (
-            <div
-              key={stat.label}
-              className={`${i > 0 ? "lg:border-l lg:border-white/10 lg:pl-6" : ""}`}
-            >
-              <StatCard value={stat.value} label={stat.label} variant="dark" />
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+    <div
+      className={`grid ${cols} gap-8 lg:gap-12 xl:gap-16 ${
+        bordered ? "pt-10 mt-10 border-t hairline" : ""
+      }`}
+    >
+      {stats.map((stat) => (
+        <StatItem key={stat.label} {...stat} />
+      ))}
+    </div>
   );
 }

@@ -4,7 +4,7 @@ import { Footer } from "@/components/Footer";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { Button } from "@/components/ui/Button";
 
-function ProgramBlock({
+function ProgramSection({
   id,
   title,
   description,
@@ -16,15 +16,10 @@ function ProgramBlock({
   children: React.ReactNode;
 }) {
   return (
-    <section id={id} className="section-padding border-b border-[var(--color-border-light)] scroll-mt-28">
-      <div className="container-wide">
-        <div className="accent-line mb-5" />
-        <h2 className="font-[family-name:var(--font-heading)] text-2xl font-semibold text-[var(--color-navy)] mb-3">
-          {title}
-        </h2>
-        <p className="text-[var(--color-text-secondary)] leading-relaxed max-w-3xl mb-10">
-          {description}
-        </p>
+    <section id={id} className="section-padding border-b hairline scroll-mt-20 last:border-0">
+      <div className="container-full">
+        <h2 className="text-xl font-semibold text-[var(--color-plum)] mb-2">{title}</h2>
+        <p className="text-[var(--color-plum-light)] mb-10 max-w-2xl leading-relaxed">{description}</p>
         {children}
       </div>
     </section>
@@ -38,114 +33,103 @@ export default function ProgramsPage() {
       <main>
         <PageHeader
           title="Programs"
-          description="Our work is organized around three pillars: Support, Education, and Awareness."
+          description="Support, education, and awareness programs for chronic illness communities in DFW."
         />
 
-        <ProgramBlock
+        <ProgramSection
           id="support"
           title="Support"
-          description="Providing essential resources and financial assistance to individuals and families affected by chronic illnesses."
+          description="Resources and financial assistance for individuals and families affected by chronic illness."
         >
           <div className="space-y-10">
             <div>
-              <h3 className="text-base font-semibold text-[var(--color-navy)] mb-4">Fundraisers</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="card-medical p-5">
-                  <p className="font-semibold text-[var(--color-navy)]">Charity Pickleball Tournament</p>
-                  <p className="text-sm font-bold text-[var(--color-coral)] mt-1 tabular-nums">$700 to CCF</p>
-                  <p className="text-sm text-[var(--color-text-secondary)] mt-2">
-                    Proceeds donated to the Crohn&apos;s & Colitis Foundation with CUTX sponsorship.
-                  </p>
-                </div>
-                <div className="card-medical p-5">
-                  <p className="font-semibold text-[var(--color-navy)]">Chicken N Pickle Giveback Night</p>
-                  <p className="text-sm text-[var(--color-text-muted)] mt-2">Details coming soon</p>
-                </div>
-              </div>
+              <h3 className="text-sm font-semibold text-[var(--color-plum)] mb-4">Fundraisers</h3>
+              <ul className="space-y-4 text-sm">
+                <li className="pb-4 border-b hairline">
+                  <p className="font-medium text-[var(--color-plum)]">Charity Pickleball Tournament</p>
+                  <p className="text-[var(--color-coral)] mt-1 tabular-nums">$700 to CCF</p>
+                </li>
+                <li>
+                  <p className="font-medium text-[var(--color-plum)]">Chicken N Pickle Giveback Night</p>
+                  <p className="text-[var(--color-plum-muted)] mt-1">Details coming soon</p>
+                </li>
+              </ul>
             </div>
 
             <div>
-              <h3 className="text-base font-semibold text-[var(--color-navy)] mb-4">Donation Drives</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-                <div className="relative aspect-video rounded-[var(--radius-lg)] overflow-hidden border border-[var(--color-border)]">
-                  <Image
-                    src="https://picsum.photos/seed/toy-donation/800/450"
-                    alt="Toy donation drive"
-                    fill
-                    className="object-cover"
-                  />
+              <h3 className="text-sm font-semibold text-[var(--color-plum)] mb-4">Donation drives</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+                <div className="relative aspect-[3/2] bg-[var(--color-line)]">
+                  <Image src="https://picsum.photos/seed/toy-donation/800/450" alt="Toy donation" fill className="object-cover" />
                 </div>
-                <div className="card-medical p-6">
-                  <p className="text-3xl font-bold text-[var(--color-navy)] tabular-nums">100+</p>
-                  <p className="text-sm font-semibold text-[var(--color-text-secondary)] mt-1">Toys Donated</p>
-                  <p className="text-sm text-[var(--color-text-secondary)] mt-3 leading-relaxed">
-                    Donated to Children&apos;s Health to support hospitalized pediatric IBD patients.
+                <div>
+                  <p className="text-2xl font-semibold tabular-nums text-[var(--color-plum)]">100+</p>
+                  <p className="text-sm text-[var(--color-plum-muted)] mt-1">Toys donated to Children&apos;s Health</p>
+                  <p className="text-sm text-[var(--color-plum-light)] mt-3 leading-relaxed">
+                    Supporting hospitalized pediatric IBD patients.
                   </p>
                 </div>
               </div>
             </div>
 
             <div>
-              <h3 className="text-base font-semibold text-[var(--color-navy)] mb-4">Micro-Grants</h3>
-              <p className="text-sm text-[var(--color-text-secondary)] mb-4 max-w-2xl">
-                Small, need-based financial assistance for individuals facing medical and health-related challenges.
+              <h3 className="text-sm font-semibold text-[var(--color-plum)] mb-3">Micro-grants</h3>
+              <p className="text-sm text-[var(--color-plum-light)] mb-4 max-w-xl">
+                Need-based financial assistance for medical and health-related challenges.
               </p>
-              <Button href="/micro-grants">Apply for Micro-Grant</Button>
+              <Button href="/micro-grants" size="sm">Apply</Button>
             </div>
           </div>
-        </ProgramBlock>
+        </ProgramSection>
 
-        <ProgramBlock
+        <ProgramSection
           id="education"
           title="Education"
-          description="Delivering clear, accessible information about chronic illnesses to improve understanding and early recognition."
+          description="Accessible information to improve understanding and early recognition of chronic illness."
         >
           <div className="space-y-8">
-            <div className="card-medical p-6">
-              <p className="font-semibold text-[var(--color-navy)]">
-                Sports Inclusivity Seminar with Dr. Bhaskar Gurram
-              </p>
-              <p className="text-sm text-[var(--color-coral)] mt-1">Pediatric Gastroenterologist</p>
-              <p className="text-sm text-[var(--color-text-secondary)] mt-3">
-                Informed over 65 people on navigating sports and physical activity with chronic digestive conditions.
+            <div className="max-w-xl">
+              <p className="font-medium text-[var(--color-plum)]">Sports Inclusivity Seminar</p>
+              <p className="text-sm text-[var(--color-plum-muted)] mt-1">Dr. Bhaskar Gurram, pediatric gastroenterologist</p>
+              <p className="text-sm text-[var(--color-plum-light)] mt-3">
+                Informed over 65 people on sports and physical activity with chronic digestive conditions.
               </p>
             </div>
             <div>
-              <h3 className="text-base font-semibold text-[var(--color-navy)] mb-3">School/Community Engagement</h3>
-              <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed max-w-3xl">
-                Our upcoming program partners with cities and schools to deliver chronic illness education toolkits,
-                community presentations, and awareness resources across the DFW area.
+              <p className="text-sm text-[var(--color-plum-light)] max-w-xl leading-relaxed">
+                Our school and community engagement program delivers chronic illness education toolkits
+                and presentations across the DFW area.
               </p>
             </div>
-            <Button href="https://instagram.com/heart2heartnpo" external variant="outline">
-              Follow on Instagram
+            <Button href="https://instagram.com/heart2heartnpo" external variant="outline" size="sm">
+              Instagram
             </Button>
           </div>
-        </ProgramBlock>
+        </ProgramSection>
 
-        <ProgramBlock
+        <ProgramSection
           id="awareness"
           title="Awareness"
-          description="Increasing visibility for chronic and often invisible illnesses through community campaigns and outreach."
+          description="Community campaigns and outreach that reduce stigma around invisible illness."
         >
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
             {[
-              { seed: "community-booth", label: "Community Booths" },
-              { seed: "heard-event", label: "HEARD School Events" },
-              { seed: "guest-speaker", label: "Guest Speaker Event" },
-              { seed: "pickleball-awareness", label: "Pickleball Tournament" },
-              { seed: "proclamation", label: "City Proclamation" },
-              { seed: "school-outreach", label: "School Outreach" },
+              { seed: "community-booth", label: "Community booths" },
+              { seed: "heard-event", label: "HEARD school events" },
+              { seed: "guest-speaker", label: "Guest speaker event" },
+              { seed: "pickleball-awareness", label: "Pickleball tournament" },
+              { seed: "proclamation", label: "City proclamation" },
+              { seed: "school-outreach", label: "School outreach" },
             ].map((item) => (
-              <div key={item.seed} className="card-medical overflow-hidden">
-                <div className="relative aspect-[4/3]">
+              <figure key={item.seed}>
+                <div className="relative aspect-[4/3] bg-[var(--color-line)]">
                   <Image src={`https://picsum.photos/seed/${item.seed}/600/450`} alt={item.label} fill className="object-cover" />
                 </div>
-                <p className="p-3 text-xs font-semibold text-[var(--color-text-secondary)]">{item.label}</p>
-              </div>
+                <figcaption className="text-xs text-[var(--color-plum-muted)] mt-2">{item.label}</figcaption>
+              </figure>
             ))}
           </div>
-        </ProgramBlock>
+        </ProgramSection>
       </main>
       <Footer />
     </>
