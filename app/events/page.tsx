@@ -1,11 +1,9 @@
-"use client";
-
-import { useState } from "react";
 import Image from "next/image";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { Button } from "@/components/ui/Button";
+import { SITE } from "@/lib/site-content";
 
 const upcomingEvents = [
   {
@@ -14,103 +12,142 @@ const upcomingEvents = [
     time: "More details coming soon",
     location: "DFW area",
     description:
-      "In partnership with the STAR Foundation for Athletic Recovery and PowerPlay.",
-    registerUrl: "https://forms.gle/omnufq3TjZtp4ssH8",
+      "In partnership with the STAR Foundation for Athletic Recovery and PowerPlay. Registration is open.",
+    registerUrl: SITE.register5kUrl,
+    photo: SITE.marathonPhotoUrl,
   },
 ];
 
-const pastEvents = [
+const pastEventGalleries = [
   {
     title: "Charity Pickleball Tournament",
     date: "2025",
-    image: "https://picsum.photos/seed/pickleball-past/800/500",
-    metrics: [
-      { label: "Raised", value: "$700" },
-      { label: "Beneficiary", value: "CCF" },
+    description: "Fundraiser for the Crohn's & Colitis Foundation with CUTX sponsorship.",
+    metrics: "Raised $700 · Beneficiary CCF · Sponsor CUTX",
+    photos: [
+      { src: "/images/events/pickleball-img_0394.jpg", alt: "Charity Pickleball Tournament" },
+      { src: "/images/events/pickleball-img_0365.jpg", alt: "Pickleball tournament participants" },
+      { src: "/images/events/pickleball-img_8297.jpg", alt: "Pickleball tournament community" },
     ],
-    description: "Fundraiser for the Crohn's & Colitis Foundation.",
   },
   {
     title: "Sports Inclusivity Seminar",
     date: "2025",
-    image: "https://picsum.photos/seed/seminar-past/800/500",
-    metrics: [
-      { label: "Attendees", value: "65+" },
-      { label: "Speaker", value: "Dr. Gurram" },
-    ],
     description: "Seminar with Dr. Bhaskar Gurram on sports and chronic conditions.",
+    metrics: "65+ attendees · Dr. Bhaskar Gurram",
+    photos: [
+      { src: "/images/programs/guest-speaker-img_3791.jpg", alt: "Sports Inclusivity Seminar" },
+      { src: "/images/programs/guest-speaker-img_3788.jpg", alt: "Guest speaker event audience" },
+      { src: "/images/programs/guest-speaker-fullsizerender.jpg", alt: "Guest speaker event" },
+    ],
   },
   {
     title: "HEARD Awareness Campaign",
     date: "2024",
-    image: "https://picsum.photos/seed/heard-past/800/500",
-    metrics: [{ label: "Type", value: "School event" }],
     description: "School-based chronic illness education campaign.",
+    metrics: "School event",
+    photos: [
+      { src: "/images/awareness/school-fullsizerender.jpg", alt: "HEARD school event" },
+      { src: "/images/awareness/school-img_0162.jpg", alt: "School awareness event" },
+      { src: "/images/awareness/school-promotion.png", alt: "School promotion" },
+    ],
+  },
+  {
+    title: "Chicken N Pickle Giveback Night",
+    date: "2025",
+    description: "10% giveback night supporting Heart to Heart programs.",
+    metrics: "Community fundraiser",
+    photos: [{ src: "/images/programs/giveback-night.jpg", alt: "Chicken N Pickle Giveback Night" }],
+  },
+  {
+    title: "Community awareness booths",
+    date: "2024–2025",
+    description: "Outreach booths connecting with the community about chronic illness.",
+    metrics: "Multiple community events",
+    photos: [
+      { src: "/images/awareness/booth-1.jpg", alt: "Community awareness booth" },
+      { src: "/images/awareness/booth-2.jpg", alt: "Community awareness booth" },
+      { src: "/images/awareness/booth-3.jpg", alt: "Community awareness booth" },
+      { src: "/images/awareness/booth-4.jpg", alt: "Community awareness booth" },
+    ],
   },
 ];
 
 export default function EventsPage() {
-  const [expandedPast, setExpandedPast] = useState<number | null>(null);
-
   return (
     <>
       <Navbar />
       <main>
         <PageHeader title="Events" description="Upcoming registration and past community programs." />
 
-        <section className="section-padding">
+        <section className="section-padding border-b hairline">
           <div className="container-full">
-            <h2 className="text-lg font-semibold text-[var(--color-plum)] mb-6">Upcoming</h2>
+            <h2 className="text-lg font-semibold text-[var(--color-plum)] mb-6">Upcoming events</h2>
             {upcomingEvents.map((event) => (
-              <article key={event.title} className="pb-10 mb-10 border-b hairline last:border-0 last:mb-0 last:pb-0">
-                <p className="text-sm text-[var(--color-plum-muted)] mb-1">{event.date}</p>
-                <h3 className="text-xl font-semibold text-[var(--color-plum)] mb-3">{event.title}</h3>
-                <p className="text-sm text-[var(--color-plum-light)] mb-4 max-w-prose">{event.description}</p>
-                <p className="text-sm text-[var(--color-plum-muted)] mb-6">
-                  {event.time} · {event.location}
-                </p>
-                <Button href={event.registerUrl} external size="sm">Register</Button>
+              <article
+                key={event.title}
+                className="grid grid-cols-1 lg:grid-cols-2 gap-8 pb-10 mb-10 border-b hairline last:border-0 last:mb-0 last:pb-0"
+              >
+                <div className="relative aspect-[16/10] bg-[var(--color-line)]">
+                  <Image src={event.photo} alt={`${event.title} photo`} fill className="object-cover" />
+                </div>
+                <div>
+                  <p className="text-sm text-[var(--color-plum-muted)] mb-1">{event.date}</p>
+                  <h3 className="text-xl font-semibold text-[var(--color-plum)] mb-3">{event.title}</h3>
+                  <p className="text-sm text-[var(--color-plum-light)] mb-4 max-w-prose">{event.description}</p>
+                  <p className="text-sm text-[var(--color-plum-muted)] mb-6">
+                    {event.time} · {event.location}
+                  </p>
+                  <Button href={event.registerUrl} external size="sm">
+                    Register
+                  </Button>
+                </div>
               </article>
             ))}
+          </div>
+        </section>
 
-            <h2 className="text-lg font-semibold text-[var(--color-plum)] mb-6 mt-14">Past</h2>
-            <div className="divide-y hairline border-t hairline">
-              {pastEvents.map((event, index) => (
-                <article key={event.title}>
-                  <button
-                    type="button"
-                    onClick={() => setExpandedPast(expandedPast === index ? null : index)}
-                    className="w-full py-6 flex items-center justify-between gap-4 text-left"
-                  >
-                    <div>
-                      <h3 className="font-semibold text-[var(--color-plum)]">{event.title}</h3>
-                      <p className="text-sm text-[var(--color-plum-muted)]">{event.date}</p>
-                    </div>
-                    <span className="text-sm text-[var(--color-coral)] shrink-0">
-                      {expandedPast === index ? "Close" : "Details"}
-                    </span>
-                  </button>
-                  {expandedPast === index && (
-                    <div className="pb-6 grid grid-cols-1 md:grid-cols-[240px_1fr] gap-6">
-                      <div className="relative aspect-[3/2] bg-[var(--color-line)]">
-                        <Image src={event.image} alt={event.title} fill className="object-cover" />
-                      </div>
-                      <div>
-                        <dl className="flex flex-wrap gap-x-8 gap-y-2 mb-4 text-sm">
-                          {event.metrics.map((m) => (
-                            <div key={m.label}>
-                              <dt className="text-[var(--color-plum-muted)]">{m.label}</dt>
-                              <dd className="font-semibold text-[var(--color-plum)] tabular-nums">{m.value}</dd>
-                            </div>
-                          ))}
-                        </dl>
-                        <p className="text-sm text-[var(--color-plum-light)]">{event.description}</p>
-                      </div>
-                    </div>
-                  )}
-                </article>
-              ))}
+        <section className="section-padding bg-[var(--color-wash)]">
+          <div className="container-full space-y-14">
+            <div>
+              <h2 className="text-lg font-semibold text-[var(--color-plum)] mb-2">Past events</h2>
+              <p className="text-sm text-[var(--color-plum-light)] max-w-2xl">
+                Photos from fundraisers, seminars, and community outreach across DFW.
+              </p>
             </div>
+
+            {pastEventGalleries.map((event) => (
+              <article key={event.title}>
+                <div className="mb-5">
+                  <h3 className="font-semibold text-[var(--color-plum)]">{event.title}</h3>
+                  <p className="text-sm text-[var(--color-plum-muted)] mt-1">
+                    {event.date} · {event.metrics}
+                  </p>
+                  <p className="text-sm text-[var(--color-plum-light)] mt-2 max-w-2xl">{event.description}</p>
+                </div>
+                <ul
+                  className={`grid gap-2 ${
+                    event.photos.length === 1
+                      ? "grid-cols-1 max-w-xl"
+                      : event.photos.length === 2
+                        ? "grid-cols-1 sm:grid-cols-2"
+                        : "grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+                  }`}
+                >
+                  {event.photos.map((photo) => (
+                    <li key={photo.src} className="relative aspect-[4/3] bg-[var(--color-line)] overflow-hidden">
+                      <Image
+                        src={photo.src}
+                        alt={photo.alt}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 50vw, 25vw"
+                      />
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            ))}
           </div>
         </section>
       </main>

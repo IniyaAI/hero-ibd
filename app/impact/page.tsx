@@ -2,24 +2,16 @@ import Image from "next/image";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { PageHeader } from "@/components/ui/PageHeader";
-import { Button } from "@/components/ui/Button";
 import { StatsRow } from "@/components/ui/StatCard";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-
-const stats = [
-  { value: "162,347+", label: "People reached" },
-  { value: "15+", label: "Events hosted" },
-  { value: "3+", label: "Communities engaged" },
-  { value: "$1,500+", label: "Funds raised" },
-  { value: "65+", label: "Patients supported" },
-];
+import { IMPACT_STATS } from "@/lib/site-content";
 
 const testimonials = [
   {
     quote:
       "Heart to Heart's presentation helped our students understand invisible illnesses in a way textbooks never could.",
     name: "Educator",
-    role: "High school teacher",
+    role: "Teacher",
   },
   {
     quote:
@@ -35,6 +27,17 @@ const testimonials = [
   },
 ];
 
+const eventPhotos = [
+  "/images/awareness/booth-1.jpg",
+  "/images/events/pickleball-img_0365.jpg",
+  "/images/programs/guest-speaker-img_3788.jpg",
+  "/images/awareness/school-img_0162.jpg",
+  "/images/awareness/booth-3.jpg",
+  "/images/events/pickleball-img_8297.jpg",
+  "/images/programs/guest-speaker-img_3791.jpg",
+  "/images/awareness/proclamation.jpg",
+];
+
 export default function ImpactPage() {
   return (
     <>
@@ -47,13 +50,16 @@ export default function ImpactPage() {
 
         <section className="section-padding border-b hairline">
           <div className="container-full">
-            <StatsRow stats={stats} bordered={false} />
+            <StatsRow stats={[...IMPACT_STATS]} bordered={false} />
+            <p className="mt-6 text-sm text-[var(--color-plum-muted)] max-w-2xl">
+              *Patients supported figure is based on our toy donation drive to Children&apos;s Health.
+            </p>
           </div>
         </section>
 
         <section className="section-padding">
           <div className="container-full">
-            <SectionHeading title="What people say" />
+            <SectionHeading title="Testimonials" />
             <div className="space-y-8 max-w-2xl">
               {testimonials.map((t) => (
                 <blockquote key={t.name} className="border-l-2 border-[var(--color-line-strong)] pl-5">
@@ -72,16 +78,11 @@ export default function ImpactPage() {
 
         <section className="section-padding bg-[var(--color-wash)] border-t hairline">
           <div className="container-full">
-            <SectionHeading title="Event photos" />
+            <SectionHeading title="Photos from events" />
             <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
-              {Array.from({ length: 8 }, (_, i) => (
-                <div key={i} className="relative aspect-square bg-[var(--color-line)]">
-                  <Image
-                    src={`https://picsum.photos/seed/impact-event-${i}/400/400`}
-                    alt="Heart to Heart event"
-                    fill
-                    className="object-cover"
-                  />
+              {eventPhotos.map((src) => (
+                <div key={src} className="relative aspect-square bg-[var(--color-line)]">
+                  <Image src={src} alt="Heart to Heart event" fill className="object-cover" sizes="25vw" />
                 </div>
               ))}
             </div>

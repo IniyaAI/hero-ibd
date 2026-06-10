@@ -4,6 +4,7 @@
   --font-heading: var(--font-plus-jakarta, "Plus Jakarta Sans", sans-serif);
   --font-body: var(--font-source-sans, "Source Sans 3", sans-serif);
   --font-brand: var(--font-montserrat, "Montserrat", sans-serif);
+  --font-script: var(--font-alex-brush, "Alex Brush", cursive);
 
   --color-coral: #e59285;
   --color-coral-hover: #d99a8f;
@@ -17,6 +18,8 @@
   --color-wash: #faf9fc;
   --color-line: #e8e3ef;
   --color-line-strong: #d5cde3;
+  --color-ombre-start: #fac6c3;
+  --color-ombre-end: #c1a0d2;
 }
 
 :root {
@@ -49,6 +52,26 @@ h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-brand);
     letter-spacing: 0.1em;
     text-transform: uppercase;
+  }
+
+  .font-script {
+    font-family: var(--font-script);
+    letter-spacing: 0.01em;
+    text-transform: none;
+    font-weight: 400;
+  }
+
+  .text-ombre {
+    background: linear-gradient(
+      90deg,
+      var(--color-ombre-start) 0%,
+      #debfd3 50%,
+      var(--color-ombre-end) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
   }
 
   .accent-rule {

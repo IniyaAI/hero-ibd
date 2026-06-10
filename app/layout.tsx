@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { Plus_Jakarta_Sans, Source_Sans_3, Montserrat } from "next/font/google";
+import { Plus_Jakarta_Sans, Source_Sans_3, Montserrat, Alex_Brush } from "next/font/google";
 import "./globals.css";
 
 const plusJakarta = Plus_Jakarta_Sans({
@@ -24,6 +24,13 @@ const montserrat = Montserrat({
   weight: ["600", "700"],
 });
 
+const alexBrush = Alex_Brush({
+  subsets: ["latin"],
+  variable: "--font-alex-brush",
+  display: "swap",
+  weight: "400",
+});
+
 export const metadata: Metadata = {
   title: "Heart to Heart NPO | Where Awareness Leads to Action",
   description:
@@ -42,7 +49,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${plusJakarta.variable} ${sourceSans.variable} ${montserrat.variable} antialiased font-[family-name:var(--font-body)] text-[var(--color-plum)]`}
+        className={`${plusJakarta.variable} ${sourceSans.variable} ${montserrat.variable} ${alexBrush.variable} antialiased font-[family-name:var(--font-body)] text-[var(--color-plum)]`}
       >
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-FXNGDRSD9B"
