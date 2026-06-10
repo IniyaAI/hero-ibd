@@ -10,6 +10,7 @@ import { Button } from "./ui/Button";
 const navLinks = [
   { href: "/about", label: "About" },
   { href: "/programs", label: "Programs" },
+  { href: "/micro-grants", label: "Micro-Grants" },
   { href: "/impact", label: "Impact" },
   { href: "/events", label: "Events" },
   { href: "/get-involved", label: "Get Involved" },
@@ -27,9 +28,9 @@ export function Navbar() {
           <Image
             src="/images/logo.png"
             alt="Heart to Heart NPO"
-            width={38}
-            height={38}
-            className="object-contain"
+            width={819}
+            height={1024}
+            className="h-9 w-auto object-contain"
             priority
           />
           <span className="font-brand text-[0.6875rem] font-bold text-[var(--color-plum)] hidden sm:block">

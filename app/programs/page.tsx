@@ -64,8 +64,11 @@ export default function ProgramsPage() {
             <div>
               <h3 className="text-sm font-semibold text-[var(--color-plum)] mb-3">Fundraisers</h3>
               <p className="text-sm text-[var(--color-plum-light)] max-w-3xl leading-relaxed mb-6">
-                Our fundraisers support dedicated organizations today and, in the future, will also
-                fund our micro-grant program for patients in need.
+                Our fundraisers support dedicated organizations today and fund our{" "}
+                <a href="/micro-grants" className="text-[var(--color-coral-deep)] hover:underline">
+                  micro-grant program
+                </a>{" "}
+                for patients in need.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <article className="border hairline rounded-[var(--radius)] overflow-hidden bg-white">
@@ -106,10 +109,14 @@ export default function ProgramsPage() {
                 children navigating chronic illness.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-                <div className="relative aspect-[3/2] bg-[var(--color-line)] border hairline">
-                  <div className="absolute inset-0 flex items-center justify-center text-sm text-[var(--color-plum-muted)]">
-                    Toy drive photo coming soon
-                  </div>
+                <div className="relative aspect-[3/4] max-w-md bg-[var(--color-line)] border hairline">
+                  <Image
+                    src="/images/programs/toy-drive.jpg"
+                    alt="Heart to Heart volunteers with toy donations for Children's Health"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 400px"
+                  />
                 </div>
                 <div>
                   <p className="text-2xl font-semibold tabular-nums text-[var(--color-plum)]">100+</p>
@@ -121,20 +128,6 @@ export default function ProgramsPage() {
                   </p>
                 </div>
               </div>
-            </div>
-
-            <div>
-              <h3 className="text-sm font-semibold text-[var(--color-plum)] mb-3">Micro-grants</h3>
-              <p className="text-sm text-[var(--color-plum-light)] mb-4 max-w-3xl leading-relaxed">
-                Need-based financial assistance for individuals facing medical and health-related
-                challenges, referred through hospital care teams.
-              </p>
-              <p className="text-sm text-[var(--color-plum-muted)] mb-4 italic">
-                Coming soon: patients helped, amount distributed, and patient outcomes.
-              </p>
-              <Button href="/micro-grants" size="sm">
-                Apply
-              </Button>
             </div>
           </div>
         </ProgramSection>
@@ -210,14 +203,12 @@ export default function ProgramsPage() {
               </h3>
               <p className="text-sm text-[var(--color-plum-light)] max-w-3xl leading-relaxed mb-6">
                 Our upcoming program delivers chronic illness education toolkits and presentations
-                across DFW schools and communities, with city proclamations and local partnerships
-                to expand reach.
+                across DFW schools and communities through local partnerships to expand reach.
               </p>
               <PhotoGrid
                 items={[
                   { src: "/images/awareness/school-promotion.png", alt: "School promotion event" },
                   { src: "/images/awareness/school-img_0162.jpg", alt: "School engagement" },
-                  { src: "/images/awareness/proclamation.jpg", alt: "City proclamation" },
                 ]}
               />
               <div className="mt-6">
@@ -236,7 +227,7 @@ export default function ProgramsPage() {
         >
           <div className="space-y-10">
             <div>
-              <h3 className="text-sm font-semibold text-[var(--color-plum)] mb-4">Community booths</h3>
+              <h3 className="text-sm font-semibold text-[var(--color-plum)] mb-4">Community Awareness Booths</h3>
               <PhotoGrid
                 items={[
                   { src: "/images/awareness/booth-1.jpg", alt: "Community awareness booth" },
@@ -249,7 +240,7 @@ export default function ProgramsPage() {
               />
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-[var(--color-plum)] mb-4">HEARD & school events</h3>
+              <h3 className="text-sm font-semibold text-[var(--color-plum)] mb-4">School Outreach</h3>
               <PhotoGrid
                 items={[
                   { src: "/images/awareness/school-fullsizerender.jpg", alt: "HEARD school event" },
@@ -259,29 +250,6 @@ export default function ProgramsPage() {
                   },
                 ]}
               />
-            </div>
-            <div>
-              <h3 className="text-sm font-semibold text-[var(--color-plum)] mb-4">Events</h3>
-              <PhotoGrid
-                items={[
-                  {
-                    src: "/images/programs/guest-speaker-fullsizerender.jpg",
-                    alt: "Guest speaker event",
-                  },
-                  { src: "/images/events/pickleball-img_8297.jpg", alt: "Pickleball tournament" },
-                ]}
-              />
-            </div>
-            <div>
-              <h3 className="text-sm font-semibold text-[var(--color-plum)] mb-4">Proclamation</h3>
-              <div className="relative max-w-xl aspect-[4/3] bg-[var(--color-line)]">
-                <Image
-                  src="/images/awareness/proclamation.jpg"
-                  alt="City proclamation for Heart to Heart"
-                  fill
-                  className="object-contain"
-                />
-              </div>
             </div>
           </div>
         </ProgramSection>

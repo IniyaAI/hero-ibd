@@ -6,16 +6,14 @@ import { ABOUT_STORY } from "@/lib/site-content";
 
 const founders = [
   {
-    name: "Founder name",
+    name: "Aashritha I.",
     title: "Co-Founder & President",
-    bio: "Add founder bio and photo when ready.",
-    image: null as string | null,
+    image: "/images/founders/aashritha.jpg",
   },
   {
-    name: "Founder name",
-    title: "Co-Founder & Vice President",
-    bio: "Add founder bio and photo when ready.",
-    image: null as string | null,
+    name: "Srihita P.",
+    title: "Co-Founder",
+    image: "/images/founders/srihita.jpg",
   },
 ];
 
@@ -35,24 +33,24 @@ export default function AboutPage() {
 
         <section className="section-padding bg-[var(--color-wash)] border-t hairline">
           <div className="container-full">
-            <h2 className="font-brand text-lg font-bold text-[var(--color-plum)] mb-8">Our team</h2>
+            <h2 className="font-brand text-lg font-bold text-[var(--color-plum)] mb-2">Our team</h2>
             <p className="text-sm text-[var(--color-plum-muted)] mb-8">Founders</p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-3xl">
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 max-w-2xl">
               {founders.map((founder) => (
-                <article key={founder.title} className="grid grid-cols-[96px_1fr] gap-5">
-                  <div className="relative size-24 shrink-0 bg-[var(--color-line)] border hairline">
-                    {founder.image ? (
-                      <Image src={founder.image} alt={founder.name} fill className="object-cover" />
-                    ) : (
-                      <div className="flex size-full items-center justify-center text-xs text-[var(--color-plum-muted)]">
-                        Photo
-                      </div>
-                    )}
+                <article key={founder.name} className="grid grid-cols-[96px_1fr] gap-5">
+                  <div className="relative size-24 shrink-0 overflow-hidden border hairline bg-[var(--color-line)]">
+                    <Image
+                      src={founder.image}
+                      alt={founder.name}
+                      fill
+                      className="object-cover"
+                      sizes="96px"
+                    />
                   </div>
-                  <div>
+                  <div className="pt-1">
                     <h3 className="font-semibold text-[var(--color-plum)]">{founder.name}</h3>
-                    <p className="text-sm text-[var(--color-coral-deep)] mt-0.5 mb-2">{founder.title}</p>
-                    <p className="text-sm text-[var(--color-plum-light)] leading-relaxed">{founder.bio}</p>
+                    <p className="mt-1 text-sm text-[var(--color-coral-deep)]">{founder.title}</p>
                   </div>
                 </article>
               ))}

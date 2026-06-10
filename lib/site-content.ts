@@ -24,6 +24,39 @@ export const HOME_STATS = [
   { value: "$1,800+", label: "Funds raised" },
 ] as const;
 
+export const HERO_CAROUSEL_SLIDES = [
+  {
+    src: "/images/programs/toy-drive.jpg",
+    alt: "Heart to Heart volunteers with toy donations for Children's Health",
+    caption: "Toy drive at Children's Health",
+  },
+  {
+    src: "/images/events/pickleball-img_0394.jpg",
+    alt: "Charity Pickleball Tournament",
+    caption: "Charity Pickleball Tournament",
+  },
+  {
+    src: "/images/programs/guest-speaker-img_3791.jpg",
+    alt: "Sports Inclusivity Seminar with Dr. Bhaskar Gurram",
+    caption: "Sports Inclusivity Seminar",
+  },
+  {
+    src: "/images/awareness/booth-1.jpg",
+    alt: "Community awareness booth",
+    caption: "Community awareness booth",
+  },
+  {
+    src: "/images/programs/giveback-night.jpg",
+    alt: "Chicken N Pickle Giveback Night",
+    caption: "Chicken N Pickle Giveback Night",
+  },
+  {
+    src: "/images/awareness/school-fullsizerender.jpg",
+    alt: "HEARD school awareness event",
+    caption: "HEARD school event",
+  },
+] as const;
+
 export const IMPACT_STATS = [
   { value: "162,347+", label: "People reached" },
   { value: "15+", label: "Events hosted" },

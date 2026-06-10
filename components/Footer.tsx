@@ -22,9 +22,9 @@ export function Footer() {
               <Image
                 src="/images/logo.png"
                 alt="Heart to Heart NPO"
-                width={36}
-                height={36}
-                className="object-contain"
+                width={819}
+                height={1024}
+                className="h-9 w-auto object-contain"
               />
               <div>
                 <p className="font-brand text-[0.6875rem] font-bold text-[var(--color-plum)]">
