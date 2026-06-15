@@ -3,7 +3,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { Button } from "@/components/ui/Button";
-import { SITE } from "@/lib/site-content";
+import { PAGE_HEADERS, SITE } from "@/lib/site-content";
 
 const upcomingEvents = [
   {
@@ -78,7 +78,7 @@ export default function EventsPage() {
     <>
       <Navbar />
       <main>
-        <PageHeader title="Events" description="Upcoming registration and past community programs." />
+        <PageHeader {...PAGE_HEADERS.events} />
 
         <section className="section-padding border-b hairline">
           <div className="container-full">

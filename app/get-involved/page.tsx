@@ -5,7 +5,7 @@ import { PageHeader } from "@/components/ui/PageHeader";
 import { Button } from "@/components/ui/Button";
 import { ContactForm } from "@/components/ui/ContactForm";
 import { DonateEmbed } from "@/components/ui/DonateEmbed";
-import { DONATE_MESSAGE, FUND_USES, SITE } from "@/lib/site-content";
+import { DONATE_MESSAGE, FUND_USES, PAGE_HEADERS, SITE } from "@/lib/site-content";
 
 const involvementOptions = [
   {
@@ -30,10 +30,7 @@ export default function GetInvolvedPage() {
     <>
       <Navbar />
       <main>
-        <PageHeader
-          title="Get involved"
-          description="Time, partnership, or funding all help us reach more people affected by chronic illness."
-        />
+        <PageHeader {...PAGE_HEADERS.getInvolved} />
 
         <section className="section-padding">
           <div className="container-full divide-y hairline border-t border-b hairline">

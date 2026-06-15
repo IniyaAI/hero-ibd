@@ -5,6 +5,7 @@
   --font-body: var(--font-source-sans, "Source Sans 3", sans-serif);
   --font-brand: var(--font-montserrat, "Montserrat", sans-serif);
   --font-script: var(--font-alex-brush, "Alex Brush", cursive);
+  --font-script-accent: var(--font-dancing-script, "Dancing Script", cursive);
 
   --color-coral: #e59285;
   --color-coral-hover: #d99a8f;
@@ -37,11 +38,13 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading);
-  color: var(--color-plum);
-  line-height: 1.2;
-  font-weight: 600;
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--color-plum);
+    line-height: 1.2;
+    font-weight: 600;
+  }
 }
 
 @layer utilities {
@@ -61,6 +64,13 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 400;
   }
 
+  .font-script-accent {
+    font-family: var(--font-script-accent);
+    font-weight: 700;
+    letter-spacing: 0.015em;
+    text-transform: none;
+  }
+
   .text-ombre {
     background: linear-gradient(
       90deg,
@@ -71,6 +81,50 @@ h1, h2, h3, h4, h5, h6 {
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
+  }
+
+  .text-ombre-accent {
+    background: linear-gradient(
+      102deg,
+      #c45f52 0%,
+      var(--color-coral-deep) 22%,
+      #b078b8 58%,
+      var(--color-lavender-deep) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    text-shadow: 0 2px 12px rgba(143, 127, 184, 0.28);
+  }
+
+  .script-accent-gradient {
+    background: linear-gradient(
+      102deg,
+      #c45f52 0%,
+      var(--color-coral-deep) 22%,
+      #b078b8 58%,
+      var(--color-lavender-deep) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    text-shadow: 0 2px 12px rgba(143, 127, 184, 0.28);
+  }
+
+  .text-ombre-hero {
+    background: linear-gradient(
+      102deg,
+      #ffd4cf 0%,
+      #f0b8c8 35%,
+      #d4b8e8 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    filter: drop-shadow(0 2px 14px rgba(0, 0, 0, 0.35));
   }
 
   .accent-rule {
@@ -113,11 +167,103 @@ h1, h2, h3, h4, h5, h6 {
     text-transform: uppercase;
     color: var(--color-plum-muted);
   }
+
+  .page-hero {
+    background: linear-gradient(
+      145deg,
+      var(--color-wash) 0%,
+      #ffffff 42%,
+      #fdf7f9 100%
+    );
+  }
+
+  .page-hero-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: url("/images/watercolor-paper.svg");
+    background-size: cover;
+    opacity: 0.35;
+  }
+
+  .page-hero-glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(72px);
+  }
+
+  .page-hero-glow--lavender {
+    top: -18%;
+    right: 8%;
+    width: min(28rem, 55vw);
+    height: min(22rem, 45vw);
+    background: color-mix(in srgb, var(--color-lavender) 22%, transparent);
+  }
+
+  .page-hero-glow--coral {
+    bottom: -28%;
+    left: 2%;
+    width: min(24rem, 50vw);
+    height: min(18rem, 40vw);
+    background: color-mix(in srgb, var(--color-ombre-start) 28%, transparent);
+  }
+
+  .page-hero-accent {
+    font-family: var(--font-script);
+    font-size: clamp(2rem, 4.5vw, 3.25rem);
+    line-height: 1;
+    letter-spacing: 0.01em;
+    background: linear-gradient(
+      95deg,
+      var(--color-coral-deep) 0%,
+      #debfd3 48%,
+      var(--color-lavender-deep) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  .page-hero-title {
+    margin-top: 0.625rem;
+    font-family: var(--font-heading);
+    font-size: clamp(2.75rem, 6.5vw, 4.5rem);
+    font-weight: 700;
+    line-height: 1.04;
+    letter-spacing: -0.02em;
+    color: var(--color-plum);
+    text-wrap: balance;
+  }
+
+  .page-hero-description {
+    margin-top: 1.25rem;
+    max-width: 38rem;
+    font-size: clamp(1.0625rem, 1.6vw, 1.1875rem);
+    line-height: 1.65;
+    color: var(--color-plum-light);
+    text-wrap: pretty;
+  }
+
+  @media (min-width: 768px) {
+    .page-hero-title {
+      margin-top: 0.875rem;
+    }
+
+    .page-hero-description {
+      margin-top: 1.5rem;
+    }
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
+  }
+
+  .text-ombre-accent,
+  .text-ombre-hero {
+    filter: none;
   }
 }

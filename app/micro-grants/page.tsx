@@ -2,19 +2,16 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { Button } from "@/components/ui/Button";
-import { SITE } from "@/lib/site-content";
+import { PAGE_HEADERS, SITE } from "@/lib/site-content";
 
 export default function MicroGrantsPage() {
   return (
     <>
       <Navbar />
       <main>
-        <PageHeader
-          title="Micro-grant application"
-          description="Thank you for your interest in the Heart to Heart Micro-Grant Program!"
-        />
+        <PageHeader {...PAGE_HEADERS.microGrants} />
 
-        <section className="section-padding">
+        <section className="pt-14 md:pt-20 pb-28 md:pb-32">
           <div className="container-full max-w-2xl space-y-8 text-[var(--color-plum-light)] leading-relaxed">
             <p>
               The Heart to Heart Micro-Grant Program provides small, need-based financial assistance
@@ -31,7 +28,7 @@ export default function MicroGrantsPage() {
             </p>
 
             <div>
-              <h2 className="text-base font-semibold text-[var(--color-plum)] mb-2">
+              <h2 className="mb-2 text-base font-semibold text-[var(--color-plum)]">
                 Pilot program partnership
               </h2>
               <p className="text-sm">
@@ -42,32 +39,32 @@ export default function MicroGrantsPage() {
             </div>
 
             <div>
-              <h2 className="text-base font-semibold text-[var(--color-plum)] mb-2">
+              <h2 className="mb-2 text-base font-semibold text-[var(--color-plum)]">
                 Eligibility & referral requirements
               </h2>
-              <p className="text-sm mb-3">
+              <p className="mb-3 text-sm">
                 At this time, we only accept direct referrals from social work teams or care
                 coordinators within hospitals in the DFW area. Self-referrals are not accepted.
               </p>
-              <p className="text-sm font-medium text-[var(--color-plum)] mb-2">
+              <p className="mb-2 text-sm font-medium text-[var(--color-plum)]">
                 All applications must include:
               </p>
-              <ul className="text-sm space-y-1 list-disc pl-5">
+              <ul className="list-disc space-y-1 pl-5 text-sm">
                 <li>Name of referring social worker or care coordinator</li>
                 <li>Hospital or healthcare system overseeing care</li>
                 <li>Department or unit (if applicable)</li>
                 <li>Contact information for verification</li>
               </ul>
-              <p className="text-sm mt-3">
+              <p className="mt-3 text-sm">
                 Applications without proper referral details will not be reviewed.
               </p>
             </div>
 
             <div>
-              <h2 className="text-base font-semibold text-[var(--color-plum)] mb-2">
+              <h2 className="mb-2 text-base font-semibold text-[var(--color-plum)]">
                 Important information
               </h2>
-              <ul className="text-sm space-y-1 list-disc pl-5">
+              <ul className="list-disc space-y-1 pl-5 text-sm">
                 <li>Grants are limited and awarded based on need and available funding</li>
                 <li>Submission does not guarantee funding</li>
                 <li>Applications are reviewed within 7–14 days</li>
@@ -78,9 +75,11 @@ export default function MicroGrantsPage() {
               </ul>
             </div>
 
-            <Button href={SITE.microGrantFormUrl} external>
-              Application form
-            </Button>
+            <div className="pt-2">
+              <Button href={SITE.microGrantFormUrl} external>
+                Application form
+              </Button>
+            </div>
           </div>
         </section>
       </main>

@@ -3,17 +3,14 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { ContactForm } from "@/components/ui/ContactForm";
-import { SITE } from "@/lib/site-content";
+import { PAGE_HEADERS, SITE } from "@/lib/site-content";
 
 export default function ContactPage() {
   return (
     <>
       <Navbar />
       <main>
-        <PageHeader
-          title="Contact"
-          description="Questions about partnerships, volunteering, or our programs."
-        />
+        <PageHeader {...PAGE_HEADERS.contact} />
 
         <section className="section-padding">
           <div className="container-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">

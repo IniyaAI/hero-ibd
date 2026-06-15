@@ -1,37 +1,48 @@
+"use client";
+
+import Image from "next/image";
 import { PARTNERS } from "@/lib/site-content";
+import { ScriptAccent } from "@/components/ui/ScriptAccent";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 export function PartnersSection() {
   return (
     <section className="section-padding border-t hairline bg-white">
       <div className="container-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
-          <div className="lg:col-span-4">
-            <div className="accent-rule mb-4" />
-            <h2 className="font-brand text-xl md:text-2xl font-bold text-[var(--color-plum)] text-balance">
-              Our partners
-            </h2>
-            <p className="mt-3 text-[var(--color-plum-light)] text-pretty leading-relaxed">
-              Hospitals, foundations, and local organizations that help us expand reach
-              across the DFW community.
-            </p>
-          </div>
+        <ScrollReveal className="mx-auto mb-12 max-w-2xl text-center md:mb-14">
+          <div className="accent-rule mx-auto mb-5" />
+          <ScriptAccent as="p" size="quote" className="mb-3">
+            Together
+          </ScriptAccent>
+          <h2 className="text-balance font-[family-name:var(--font-heading)] text-[clamp(2rem,4.5vw,3.25rem)] font-bold! leading-[1.08] text-[var(--color-plum)]">
+            Our Partners
+          </h2>
+          <p className="mt-4 text-[var(--color-plum-light)] leading-relaxed text-pretty md:mt-5">
+            Hospitals, foundations, and local organizations that help us expand reach across the
+            DFW community.
+          </p>
+        </ScrollReveal>
 
-          <ul className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
-            {PARTNERS.map((partner) => (
-              <li
-                key={partner.name}
-                className="flex min-h-[5rem] flex-col items-center justify-center rounded-[var(--radius)] border hairline bg-[var(--color-wash)] px-3 py-4 text-center"
-              >
-                <span className="font-brand text-[0.625rem] leading-snug text-[var(--color-plum)]">
+        <ul className="mx-auto grid max-w-5xl grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 lg:gap-5">
+          {PARTNERS.map((partner, index) => (
+            <ScrollReveal key={partner.name} delay={index * 0.08} y={20}>
+              <li className="group">
+                <div className="flex h-28 items-center justify-center rounded-[var(--radius)] border hairline bg-[var(--color-wash)] px-4 py-5 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--color-line-strong)] hover:bg-white hover:shadow-[0_12px_36px_rgba(143,127,184,0.18)] sm:h-32">
+                  <Image
+                    src={partner.logo}
+                    alt={partner.name}
+                    width={200}
+                    height={80}
+                    className="max-h-14 w-auto object-contain opacity-[0.72] saturate-[0.88] transition-all duration-300 group-hover:scale-[1.04] group-hover:opacity-100 group-hover:saturate-100 group-hover:drop-shadow-[0_4px_14px_rgba(143,127,184,0.28)] sm:max-h-16"
+                  />
+                </div>
+                <p className="mt-2 hidden text-center text-[0.6875rem] text-[var(--color-plum-muted)] sm:block">
                   {partner.short}
-                </span>
-                <span className="mt-1 text-[0.6875rem] text-[var(--color-plum-muted)] leading-snug text-pretty hidden sm:block">
-                  {partner.name}
-                </span>
+                </p>
               </li>
-            ))}
-          </ul>
-        </div>
+            </ScrollReveal>
+          ))}
+        </ul>
       </div>
     </section>
   );

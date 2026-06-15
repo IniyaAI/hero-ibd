@@ -3,7 +3,7 @@ import { Footer } from "@/components/Footer";
 import { MissionHero } from "@/components/home/MissionHero";
 import { PartnersSection } from "@/components/home/PartnersSection";
 import { PillarsSection } from "@/components/home/PillarsSection";
-import { PreviewSection } from "@/components/home/PreviewSection";
+import { StoriesOfImpactSection } from "@/components/home/StoriesOfImpactSection";
 import { DonateCTA } from "@/components/home/DonateCTA";
 
 export default function Home() {
@@ -13,7 +13,7 @@ export default function Home() {
       <main>
         <MissionHero />
         <PillarsSection />
-        <PreviewSection />
+        <StoriesOfImpactSection />
         <PartnersSection />
         <DonateCTA />
       </main>

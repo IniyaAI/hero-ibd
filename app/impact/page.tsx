@@ -4,7 +4,7 @@ import { PageHeader } from "@/components/ui/PageHeader";
 import { StatsRow } from "@/components/ui/StatCard";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ImpactPhotoGallery } from "@/components/impact/ImpactPhotoGallery";
-import { IMPACT_STATS } from "@/lib/site-content";
+import { IMPACT_STATS, PAGE_HEADERS } from "@/lib/site-content";
 
 const testimonials = [
   {
@@ -39,10 +39,7 @@ export default function ImpactPage() {
     <>
       <Navbar />
       <main>
-        <PageHeader
-          title="Impact"
-          description="Outcomes from youth-led action and community partnership across the DFW area."
-        />
+        <PageHeader {...PAGE_HEADERS.impact} />
 
         <section className="section-padding border-b hairline">
           <div className="container-full">

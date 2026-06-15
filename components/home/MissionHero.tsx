@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/Button";
-import { StatsRow } from "@/components/ui/StatCard";
+import { AnimatedStatsRow } from "@/components/ui/AnimatedStatsRow";
 import { HeroPhotoCarousel } from "@/components/home/HeroPhotoCarousel";
 import { HOME_STATS, MISSION_STATEMENT } from "@/lib/site-content";
 
@@ -30,7 +30,7 @@ export function MissionHero() {
               <span className="block font-[family-name:var(--font-heading)] text-[clamp(1.75rem,3.5vw,2.5rem)] font-semibold leading-[1.12] text-white">
                 Where awareness
               </span>
-              <span className="font-script text-ombre mt-1 inline-block pb-1 text-[clamp(2.25rem,5.5vw,3.75rem)] leading-[0.95] md:mt-2">
+              <span className="font-script-accent text-ombre-hero mt-1 inline-block pb-1 text-[clamp(2.5rem,6vw,4.25rem)] font-bold leading-[0.92] md:mt-2">
                 leads to action
               </span>
             </h1>
@@ -53,9 +53,10 @@ export function MissionHero() {
         </div>
       </div>
 
-      <div className="border-t hairline bg-[var(--color-wash)]">
-        <div className="container-full py-10 md:py-12 lg:py-14">
-          <StatsRow stats={[...HOME_STATS]} bordered={false} />
+      <div className="relative border-t hairline bg-gradient-to-b from-[var(--color-wash)] to-white">
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[var(--color-coral)]/40 to-transparent" />
+        <div className="container-full py-12 md:py-14 lg:py-16">
+          <AnimatedStatsRow stats={[...HOME_STATS]} bordered={false} />
         </div>
       </div>
     </section>

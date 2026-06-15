@@ -17,6 +17,45 @@ export const MISSION_STATEMENT =
 
 export const TAGLINE = "Heart to Heart: Where Awareness Leads to Action";
 
+export const PAGE_HEADERS = {
+  about: {
+    accentHeading: "Our Mission",
+    title: "About Us",
+    description:
+      "Founded from a passion for helping others and improving health outcomes through awareness, education, and support.",
+  },
+  programs: {
+    accentHeading: "What We Do",
+    title: "Programs",
+    description: "Support, education, and awareness programs for chronic illness communities in DFW.",
+  },
+  events: {
+    accentHeading: "Join Us",
+    title: "Events",
+    description: "Upcoming registration and past community programs.",
+  },
+  impact: {
+    accentHeading: "Our Reach",
+    title: "Impact",
+    description: "Outcomes from youth-led action and community partnership across the DFW area.",
+  },
+  getInvolved: {
+    accentHeading: "Take Action",
+    title: "Get Involved",
+    description: "Time, partnership, or funding all help us reach more people affected by chronic illness.",
+  },
+  contact: {
+    accentHeading: "Reach Out",
+    title: "Contact",
+    description: "Questions about partnerships, volunteering, or our programs.",
+  },
+  microGrants: {
+    accentHeading: "Apply Today",
+    title: "Microgrants",
+    description: "Thank you for your interest in the Heart to Heart Micro-Grant Program!",
+  },
+} as const;
+
 export const HOME_STATS = [
   { value: "162,347+", label: "People reached" },
   { value: "15+", label: "Events hosted" },
@@ -67,13 +106,41 @@ export const PILLARS = [
 ] as const;
 
 export const PARTNERS = [
-  { name: "Crohn's & Colitis Foundation", short: "CCF" },
-  { name: "PowerPlay Foundation", short: "PowerPlay" },
-  { name: "Chicken N Pickle", short: "Chicken N Pickle" },
-  { name: "Children's Health", short: "Children's Health" },
-  { name: "STAR Foundation for Athletic Recovery", short: "STAR Foundation" },
-  { name: "City of Prosper", short: "City of Prosper" },
-  { name: "City of Celina", short: "City of Celina" },
+  {
+    name: "Crohn's & Colitis Foundation",
+    short: "CCF",
+    logo: "/images/partners/ccf.png",
+  },
+  {
+    name: "PowerPlay Foundation",
+    short: "PowerPlay",
+    logo: "/images/partners/powerplay.png",
+  },
+  {
+    name: "Chicken N Pickle",
+    short: "Chicken N Pickle",
+    logo: "/images/partners/chicken-n-pickle.png",
+  },
+  {
+    name: "Children's Health",
+    short: "Children's Health",
+    logo: "/images/partners/childrens-health.png",
+  },
+  {
+    name: "STAR Foundation for Athletic Recovery",
+    short: "STAR Foundation",
+    logo: "/images/partners/star-foundation.png",
+  },
+  {
+    name: "City of Prosper",
+    short: "City of Prosper",
+    logo: "/images/partners/city-of-prosper.png",
+  },
+  {
+    name: "City of Celina",
+    short: "City of Celina",
+    logo: "/images/partners/city-of-celina.png",
+  },
 ] as const;
 
 export const PODCAST_SPEAKERS = [

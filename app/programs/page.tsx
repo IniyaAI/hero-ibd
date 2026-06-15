@@ -4,7 +4,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { Button } from "@/components/ui/Button";
-import { PODCAST_SPEAKERS, SITE } from "@/lib/site-content";
+import { PODCAST_SPEAKERS, PAGE_HEADERS, SITE } from "@/lib/site-content";
 
 function ProgramSection({
   id,
@@ -50,10 +50,7 @@ export default function ProgramsPage() {
     <>
       <Navbar />
       <main>
-        <PageHeader
-          title="Programs"
-          description="Support, education, and awareness programs for chronic illness communities in DFW."
-        />
+        <PageHeader {...PAGE_HEADERS.programs} />
 
         <ProgramSection
           id="support"
