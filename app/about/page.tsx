@@ -22,7 +22,7 @@ const team = [
     name: "Iniya R.",
     title: "Chief Technology Officer",
     image: "/images/team/iniya.png",
-    imageClassName: "object-cover object-[center_18%]",
+    imageClassName: "object-cover object-[center_10%]",
   },
 ];
 
