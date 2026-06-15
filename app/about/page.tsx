@@ -11,9 +11,18 @@ const founders = [
     image: "/images/founders/aashritha.jpg",
   },
   {
-    name: "Srihita P.",
+    name: "Srihitha P.",
     title: "Co-Founder",
     image: "/images/founders/srihita.jpg",
+  },
+];
+
+const team = [
+  {
+    name: "Iniya R.",
+    title: "Chief Technology Officer",
+    image: "/images/team/iniya.png",
+    imageClassName: "object-cover object-[center_18%]",
   },
 ];
 
@@ -51,6 +60,28 @@ export default function AboutPage() {
                   <div className="pt-1">
                     <h3 className="font-semibold text-[var(--color-plum)]">{founder.name}</h3>
                     <p className="mt-1 text-sm text-[var(--color-coral-deep)]">{founder.title}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+
+            <p className="text-sm text-[var(--color-plum-muted)] mt-10 mb-8">Team</p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 max-w-2xl">
+              {team.map((member) => (
+                <article key={member.name} className="grid grid-cols-[96px_1fr] gap-5">
+                  <div className="relative size-24 shrink-0 overflow-hidden border hairline bg-[var(--color-line)]">
+                    <Image
+                      src={member.image}
+                      alt={member.name}
+                      fill
+                      className={member.imageClassName ?? "object-cover"}
+                      sizes="96px"
+                    />
+                  </div>
+                  <div className="pt-1">
+                    <h3 className="font-semibold text-[var(--color-plum)]">{member.name}</h3>
+                    <p className="mt-1 text-sm text-[var(--color-coral-deep)]">{member.title}</p>
                   </div>
                 </article>
               ))}

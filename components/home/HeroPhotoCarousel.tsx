@@ -41,7 +41,6 @@ export function HeroPhotoCarousel({ className = "" }: HeroPhotoCarouselProps) {
             }`}
             aria-hidden={i !== index}
           >
-            {/* Native img — original files from /public, no optimization pipeline */}
             <img
               src={item.src}
               alt={item.alt}
