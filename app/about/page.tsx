@@ -39,9 +39,9 @@ export default function AboutPage() {
 
         <section className="section-padding bg-[var(--color-wash)] border-t hairline">
           <div className="container-full">
-            <h2 className="font-brand text-lg font-bold text-[var(--color-plum)] mb-8">Our team</h2>
+            <h2 className="font-brand text-lg font-bold text-[var(--color-plum)] mb-8 text-center">Our team</h2>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-4xl">
+            <div className="mx-auto flex max-w-4xl flex-wrap justify-center gap-10">
               {teamMembers.map((member) => (
                 <article key={member.name} className="grid grid-cols-[96px_1fr] gap-5">
                   <div className="relative size-24 shrink-0 overflow-hidden border hairline bg-[var(--color-line)]">
