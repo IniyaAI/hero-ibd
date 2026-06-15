@@ -22,14 +22,14 @@ export const HOME_STATS = [
   { value: "162,347+", label: "People reached" },
   { value: "15+", label: "Events hosted" },
   { value: "3+", label: "Schools/communities engaged" },
-  { value: "$1,800+", label: "Funds raised" },
+  { value: "$1,800+", label: "raised" },
 ] as const;
 
 export const IMPACT_STATS = [
   { value: "162,347+", label: "People reached" },
   { value: "15+", label: "Events hosted" },
   { value: "3+", label: "Schools/communities engaged" },
-  { value: "$1,500+", label: "Funds raised" },
+  { value: "$1,800+", label: "raised" },
   { value: "65+", label: "Patients supported" },
 ] as const;
 

@@ -27,7 +27,7 @@ export default function ProgramsPage() {
       <Navbar />
       <main>
         <PageHeader
-          title="Programs"
+          title="Our Programs"
           description="Improving outcomes for individuals living with chronic illnesses through support, education, and awareness."
         />
         <PillarNav />

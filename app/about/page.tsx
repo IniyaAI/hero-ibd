@@ -28,7 +28,7 @@ export default function AboutPage() {
     <>
       <Navbar />
       <main>
-        <PageHeader title="About us" description="Our story and the team behind Heart to Heart." />
+        <PageHeader title="About Us" description="Our story and the team behind Heart to Heart." />
 
         <section className="section-padding">
           <div className="container-full max-w-3xl">

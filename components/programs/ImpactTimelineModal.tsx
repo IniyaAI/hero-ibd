@@ -18,7 +18,7 @@ export type TimelineEntry = {
   icon?: TimelineEntryIcon;
   badge?: string;
   highlighted?: boolean;
-  image?: { src: string; alt: string };
+  image?: { src: string; alt: string; className?: string };
   gallery?: readonly { src: string; alt: string }[];
 };
 
@@ -328,7 +328,7 @@ function TimelineList({
                           src={entry.image.src}
                           alt={entry.image.alt}
                           fill
-                          className="object-cover"
+                          className={entry.image.className ?? "object-cover"}
                           sizes="(max-width: 672px) 100vw, 672px"
                         />
                       </div>

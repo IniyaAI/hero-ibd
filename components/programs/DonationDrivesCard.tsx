@@ -21,7 +21,7 @@ export function DonationDrivesCard({ delay = 0 }: { delay?: number }) {
               src={card.images[0].src}
               alt={card.images[0].alt}
               fill
-              className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+              className="object-cover object-[center_50%] transition-transform duration-500 group-hover:scale-[1.02]"
               sizes="576px"
             />
           </div>

@@ -5,7 +5,7 @@ export const PILLAR_NAV = [
 ] as const;
 
 export const SUPPORT_METRICS = [
-  { value: "$1,800+", label: "Raised" },
+  { value: "$1,800+", label: "raised" },
   { value: "65+", label: "Patients Supported" },
   { value: "100+", label: "Toys Donated" },
 ] as const;
@@ -31,7 +31,7 @@ export const FUNDRAISER_TIMELINE = [
     year: "2024",
     title: "Sickle Cell Disease Fundraiser",
     amount: "$300",
-    beneficiary: "Sickle cell disease awareness initiatives",
+    beneficiary: "The National Bleeding Disorders Foundation",
     description:
       "Student-led fundraising campaign focused on increasing awareness and supporting individuals affected by sickle cell disease.",
   },
@@ -39,7 +39,7 @@ export const FUNDRAISER_TIMELINE = [
     year: "2025",
     title: "BLOOM Endometriosis Fundraiser",
     amount: "$500",
-    beneficiary: "Endometriosis awareness initiatives",
+    beneficiary: "Endometriosis Research Center and Women's Hospital",
     description:
       "Community campaign supporting education, awareness, and advocacy for endometriosis.",
   },
@@ -95,7 +95,11 @@ export const DONATION_DRIVE_TIMELINE = [
       "Community members donated toys and comfort items to support hospitalized pediatric patients living with inflammatory bowel disease and other chronic health conditions.",
     badge: "Founding Initiative",
     highlighted: true,
-    image: { src: "/images/programs/toy-drive.jpg", alt: "Toy donations for Children's Health" },
+    image: {
+      src: "/images/programs/toy-drive.jpg",
+      alt: "Community members at the Children's Health toy donation drive",
+      className: "object-cover object-[center_40%]",
+    },
   },
 ] as const;
 
@@ -103,13 +107,13 @@ export const DONATION_DRIVES_CARD = {
   title: "Donation Drives",
   description:
     "Care packages, flare kits, and toy drives that bring comfort and joy to pediatric patients navigating chronic illness.",
-  images: [{ src: "/images/programs/toy-drive.jpg", alt: "Toy donations for Children's Health" }],
+  images: [{ src: "/images/programs/toy-drive-card.png", alt: "Toy donations for Children's Health" }],
   metrics: [{ value: "65", label: "toys donated" }],
 } as const;
 
 export const SUPPORT_CARDS = [
   {
-    title: "Micro-Grants",
+    title: "Micro-grant Relief Program",
     description:
       "Need-based micro-grants providing financial assistance for healthcare-related expenses and day-to-day support.",
     images: [{ src: "/images/watercolor-paper.svg", alt: "Micro-grants program illustration" }],
@@ -231,11 +235,15 @@ export const GUEST_SPEAKER_EVENTS = [
     metric: "129 people educated",
     description:
       "Focused on endometriosis education, patient awareness, and improving early diagnosis through medical literacy.",
-    speakerImage: { src: "/images/podcast/webinars/dr-hina-khan.png", alt: "Dr. Hina Khan" },
+    imageLayout: "fit-left" as const,
+    speakerImage: {
+      src: "/images/podcast/webinars/dr-hina-khan.png",
+      alt: "Dr. Hina Khan",
+    },
     eventImage: {
       src: "/images/podcast/webinars/dr-hina-khan-event.png",
       alt: "Endometriosis educational webinar with 129 participants",
-      className: "object-cover object-right",
+      className: "object-cover",
     },
   },
   {

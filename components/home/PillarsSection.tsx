@@ -38,7 +38,7 @@ export function PillarsSection() {
                   {pillar.description}
                 </p>
                 <Link href={pillar.href} className="link-arrow">
-                  Programs
+                  Our Programs
                   <ArrowUpRight size={14} />
                 </Link>
               </article>
