@@ -1,9 +1,9 @@
-import Image from "next/image";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { StatsRow } from "@/components/ui/StatCard";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { ImpactPhotoGallery } from "@/components/impact/ImpactPhotoGallery";
 import { IMPACT_STATS } from "@/lib/site-content";
 
 const testimonials = [
@@ -28,14 +28,10 @@ const testimonials = [
 ];
 
 const eventPhotos = [
-  "/images/awareness/booth-1.jpg",
-  "/images/events/pickleball-img_0365.jpg",
-  "/images/programs/guest-speaker-img_3788.jpg",
-  "/images/awareness/school-img_0162.jpg",
-  "/images/awareness/booth-3.jpg",
-  "/images/events/pickleball-img_8297.jpg",
-  "/images/programs/guest-speaker-img_3791.jpg",
-  "/images/awareness/proclamation.jpg",
+  { src: "/images/impact/collage-1.png", alt: "Heart to Heart impact collage", width: 1350, height: 1080 },
+  { src: "/images/impact/collage-2.png", alt: "Heart to Heart community events collage", width: 2000, height: 1600 },
+  { src: "/images/impact/collage-3.png", alt: "Heart to Heart outreach collage", width: 2000, height: 1600 },
+  { src: "/images/impact/collage-4.png", alt: "Heart to Heart programs collage", width: 1920, height: 1080 },
 ];
 
 export default function ImpactPage() {
@@ -51,9 +47,6 @@ export default function ImpactPage() {
         <section className="section-padding border-b hairline">
           <div className="container-full">
             <StatsRow stats={[...IMPACT_STATS]} bordered={false} />
-            <p className="mt-6 text-sm text-[var(--color-plum-muted)] max-w-2xl">
-              *Patients supported figure is based on our toy donation drive to Children&apos;s Health.
-            </p>
           </div>
         </section>
 
@@ -78,14 +71,8 @@ export default function ImpactPage() {
 
         <section className="section-padding bg-[var(--color-wash)] border-t hairline">
           <div className="container-full">
-            <SectionHeading title="Photos from events" />
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
-              {eventPhotos.map((src) => (
-                <div key={src} className="relative aspect-square bg-[var(--color-line)]">
-                  <Image src={src} alt="Heart to Heart event" fill className="object-cover" sizes="25vw" />
-                </div>
-              ))}
-            </div>
+            <SectionHeading title="Event Highlights" />
+            <ImpactPhotoGallery photos={eventPhotos} />
           </div>
         </section>
       </main>
