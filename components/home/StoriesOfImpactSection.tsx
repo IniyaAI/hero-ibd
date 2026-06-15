@@ -62,7 +62,7 @@ function FeaturedStoryCard({
 
 export function StoriesOfImpactSection() {
   return (
-    <section className="section-padding border-t hairline bg-[#f3eff8]">
+    <section className="section-padding border-t hairline bg-[#faf8fc]">
       <div className="container-full">
         <ScrollReveal className="mb-12 max-w-3xl md:mb-16 lg:mb-20">
           <div className="accent-rule mb-6" />

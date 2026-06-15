@@ -77,7 +77,7 @@ export default function MicroGrantsPage() {
 
             <div className="pt-2">
               <Button href={SITE.microGrantFormUrl} external>
-                Application form
+                View Application
               </Button>
             </div>
           </div>

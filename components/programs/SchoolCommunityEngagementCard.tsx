@@ -33,7 +33,6 @@ export function SchoolCommunityEngagementCard({ delay = 0 }: { delay?: number })
 
           <div className="flex flex-col p-5 md:p-6">
             <h3 className="text-lg font-semibold text-[var(--color-plum)]">{card.title}</h3>
-            <p className="mt-2 text-sm leading-relaxed text-[var(--color-plum-light)]">{card.description}</p>
 
             <ul className="mt-4 space-y-2">
               {card.metrics.map((metric) => (

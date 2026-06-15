@@ -23,7 +23,7 @@ const shared =
   "font-script-accent inline-block w-fit max-w-full overflow-visible text-pretty";
 
 const defaultClasses =
-  "font-semibold! bg-[linear-gradient(102deg,#c45f52_0%,var(--color-coral-deep)_22%,#b078b8_58%,var(--color-lavender-deep)_100%)] bg-clip-text text-transparent [paint-order:stroke_fill] [-webkit-text-stroke:1.5px_transparent]";
+  "font-semibold! script-accent-gradient [paint-order:stroke_fill] [-webkit-text-stroke:1.5px_transparent]";
 
 const overlayClasses =
   "font-bold! text-white [-webkit-text-stroke:0.35px_rgba(255,255,255,0.85)] [text-shadow:0_2px_24px_rgba(0,0,0,0.85),0_1px_8px_rgba(0,0,0,0.7),0_0_1px_rgba(255,255,255,0.95)]";
