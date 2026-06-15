@@ -6,6 +6,10 @@ import { Instagram } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { FadeIn } from "@/components/programs/FadeIn";
 import { ProgramDetailModal } from "@/components/programs/ProgramDetailModal";
+import {
+  PROGRAM_CARD_IMAGE_CELL,
+  PROGRAM_CARD_SINGLE_IMAGE_ASPECT,
+} from "@/components/programs/programCardLayout";
 import { PATIENT_STORY_PODCAST_HUB, type PodcastSeries } from "@/lib/programs-content";
 
 type PodcastSeriesCardProps = {
@@ -20,8 +24,8 @@ function SeriesCover({ series }: { series: PodcastSeries }) {
       "className" in image ? image.className : "object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]";
 
     return (
-      <div className="relative aspect-[16/10] bg-white">
-        <Image src={image.src} alt={image.alt} fill className={imageClassName} sizes="(max-width: 768px) 100vw, 50vw" />
+      <div className={`relative ${PROGRAM_CARD_SINGLE_IMAGE_ASPECT} bg-white`}>
+        <Image src={image.src} alt={image.alt} fill className={imageClassName} sizes="576px" />
       </div>
     );
   }
@@ -29,7 +33,7 @@ function SeriesCover({ series }: { series: PodcastSeries }) {
   return (
     <div className="relative grid grid-cols-2 gap-0.5">
       {series.images.map((image) => (
-        <div key={image.src} className="relative aspect-[4/3] bg-[var(--color-line)]">
+        <div key={image.src} className={PROGRAM_CARD_IMAGE_CELL}>
           <Image
             src={image.src}
             alt={image.alt}
@@ -49,10 +53,10 @@ export function PodcastSeriesCard({ series, delay = 0 }: PodcastSeriesCardProps)
   return (
     <>
       <FadeIn delay={delay}>
-        <article className="group flex h-full flex-col overflow-hidden rounded-xl border hairline bg-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md">
+        <article className="group flex flex-col overflow-hidden rounded-xl border hairline bg-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md">
           <SeriesCover series={series} />
 
-          <div className="flex flex-1 flex-col p-5 md:p-6">
+          <div className="flex flex-col p-5 md:p-6">
             <h4 className="text-lg font-semibold text-[var(--color-plum)]">{series.title}</h4>
             <p className="mt-2 text-sm leading-relaxed text-[var(--color-plum-light)]">{series.description}</p>
             <div className="mt-6 pt-2">

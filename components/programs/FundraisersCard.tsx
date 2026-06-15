@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { FadeIn } from "@/components/programs/FadeIn";
 import { FundraiserTimelineModal } from "@/components/programs/FundraiserTimelineModal";
+import { PROGRAM_CARD_IMAGE_CELL } from "@/components/programs/programCardLayout";
 import { FUNDRAISERS_CARD } from "@/lib/programs-content";
 
 const card = FUNDRAISERS_CARD;
@@ -15,22 +16,22 @@ export function FundraisersCard({ delay = 0 }: { delay?: number }) {
   return (
     <>
       <FadeIn delay={delay}>
-        <article className="group flex h-full flex-col overflow-hidden rounded-xl border hairline bg-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md">
+        <article className="group flex flex-col overflow-hidden rounded-xl border hairline bg-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md">
           <div className="relative grid grid-cols-2 gap-0.5">
             {card.images.map((image) => (
-              <div key={image.src} className="relative aspect-[4/3] bg-[var(--color-line)]">
+              <div key={image.src} className={PROGRAM_CARD_IMAGE_CELL}>
                 <Image
                   src={image.src}
                   alt={image.alt}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
-                  sizes="(max-width: 768px) 50vw, 33vw"
+                  sizes="288px"
                 />
               </div>
             ))}
           </div>
 
-          <div className="flex flex-1 flex-col p-5 md:p-6">
+          <div className="flex flex-col p-5 md:p-6">
             <h3 className="text-lg font-semibold text-[var(--color-plum)]">{card.title}</h3>
             <p className="mt-2 text-sm leading-relaxed text-[var(--color-plum-light)]">{card.description}</p>
 

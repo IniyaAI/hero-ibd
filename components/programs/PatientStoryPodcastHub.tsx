@@ -1,5 +1,6 @@
 import { FadeIn } from "@/components/programs/FadeIn";
 import { PodcastSeriesCard } from "@/components/programs/PodcastSeriesCard";
+import { PROGRAM_CARD_WIDTH } from "@/components/programs/programCardLayout";
 import { PATIENT_STORY_PODCAST_HUB, PODCAST_SERIES } from "@/lib/programs-content";
 
 export function PatientStoryPodcastHub() {
@@ -15,9 +16,11 @@ export function PatientStoryPodcastHub() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:max-w-4xl">
+        <div className="flex flex-col items-start gap-6 sm:flex-row sm:flex-wrap">
           {PODCAST_SERIES.map((series, index) => (
-            <PodcastSeriesCard key={series.id} series={series} delay={index * 0.08} />
+            <div key={series.id} className={PROGRAM_CARD_WIDTH}>
+              <PodcastSeriesCard series={series} delay={index * 0.08} />
+            </div>
           ))}
         </div>
       </section>

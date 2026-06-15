@@ -1,6 +1,10 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { FadeIn } from "@/components/programs/FadeIn";
+import {
+  PROGRAM_CARD_IMAGE_CELL,
+  PROGRAM_CARD_SINGLE_IMAGE_ASPECT,
+} from "@/components/programs/programCardLayout";
 
 type ProgramCardProps = {
   title: string;
@@ -23,14 +27,14 @@ export function ProgramCard({
 }: ProgramCardProps) {
   return (
     <FadeIn delay={delay}>
-      <article className="group flex h-full flex-col overflow-hidden rounded-xl border hairline bg-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md">
+      <article className="group flex flex-col overflow-hidden rounded-xl border hairline bg-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md">
         <div className={`relative ${images.length > 1 ? "grid grid-cols-2 gap-0.5" : ""}`}>
           {images.map((image) => (
             <div
               key={image.src}
-              className={`relative bg-[var(--color-line)] ${
-                images.length > 1 ? "aspect-[4/3]" : "aspect-[16/10]"
-              }`}
+              className={
+                images.length > 1 ? PROGRAM_CARD_IMAGE_CELL : `relative ${PROGRAM_CARD_SINGLE_IMAGE_ASPECT} bg-[var(--color-line)]`
+              }
             >
               <Image
                 src={image.src}
@@ -48,7 +52,7 @@ export function ProgramCard({
           )}
         </div>
 
-        <div className="flex flex-1 flex-col p-5 md:p-6">
+        <div className="flex flex-col p-5 md:p-6">
           <h3 className="text-lg font-semibold text-[var(--color-plum)]">{title}</h3>
           <p className="mt-2 text-sm leading-relaxed text-[var(--color-plum-light)]">{description}</p>
 

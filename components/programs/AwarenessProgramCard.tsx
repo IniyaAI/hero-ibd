@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { FadeIn } from "@/components/programs/FadeIn";
 import { AwarenessTimelineModal } from "@/components/programs/AwarenessTimelineModal";
+import { PROGRAM_CARD_IMAGE_CELL, PROGRAM_CARD_SINGLE_IMAGE_ASPECT } from "@/components/programs/programCardLayout";
 import type { AwarenessProgramCardData } from "@/lib/programs-content";
 
 type AwarenessProgramCardProps = {
@@ -32,26 +33,34 @@ export function AwarenessProgramCard({ card, modal, delay = 0 }: AwarenessProgra
   return (
     <>
       <FadeIn delay={delay}>
-        <article className="group flex h-full flex-col overflow-hidden rounded-xl border hairline bg-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md">
-          <div
-            className={`relative gap-0.5 ${
-              card.images.length === 1 ? "grid grid-cols-1" : "grid grid-cols-2"
-            }`}
-          >
-            {card.images.map((image) => (
-              <div key={image.src} className="relative aspect-[4/3] bg-[var(--color-line)]">
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
-                  sizes="(max-width: 768px) 50vw, 33vw"
-                />
-              </div>
-            ))}
-          </div>
+        <article className="group flex flex-col overflow-hidden rounded-xl border hairline bg-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md">
+          {card.images.length === 1 ? (
+            <div className={`relative ${PROGRAM_CARD_SINGLE_IMAGE_ASPECT} bg-[var(--color-line)]`}>
+              <Image
+                src={card.images[0].src}
+                alt={card.images[0].alt}
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                sizes="576px"
+              />
+            </div>
+          ) : (
+            <div className="relative grid grid-cols-2 gap-0.5">
+              {card.images.map((image) => (
+                <div key={image.src} className={PROGRAM_CARD_IMAGE_CELL}>
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                    sizes="288px"
+                  />
+                </div>
+              ))}
+            </div>
+          )}
 
-          <div className="flex flex-1 flex-col p-5 md:p-6">
+          <div className="flex flex-col p-5 md:p-6">
             <h3 className="text-lg font-semibold text-[var(--color-plum)]">{card.title}</h3>
             <p className="mt-2 text-sm leading-relaxed text-[var(--color-plum-light)]">{card.description}</p>
 

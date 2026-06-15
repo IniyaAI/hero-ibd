@@ -10,6 +10,7 @@ import { DonationDrivesCard } from "@/components/programs/DonationDrivesCard";
 import { PatientStoryPodcastHub } from "@/components/programs/PatientStoryPodcastHub";
 import { EducationalSpeakerSeriesHub } from "@/components/programs/EducationalSpeakerSeriesHub";
 import { SchoolCommunityEngagementCard } from "@/components/programs/SchoolCommunityEngagementCard";
+import { PROGRAM_CARD_WIDTH } from "@/components/programs/programCardLayout";
 import { AwarenessProgramsHub } from "@/components/programs/AwarenessProgramsHub";
 import { ProgramsCTA } from "@/components/programs/ProgramsCTA";
 import {
@@ -39,11 +40,17 @@ export default function ProgramsPage() {
           metrics={SUPPORT_METRICS}
           background="white"
         >
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
-            <FundraisersCard delay={0} />
-            <DonationDrivesCard delay={0.08} />
+          <div className="flex flex-col items-start gap-6 sm:flex-row sm:flex-wrap">
+            <div className={PROGRAM_CARD_WIDTH}>
+              <FundraisersCard delay={0} />
+            </div>
+            <div className={PROGRAM_CARD_WIDTH}>
+              <DonationDrivesCard delay={0.08} />
+            </div>
             {SUPPORT_CARDS.map((card, index) => (
-              <ProgramCard key={card.title} {...card} delay={(index + 2) * 0.08} />
+              <div key={card.title} className={PROGRAM_CARD_WIDTH}>
+                <ProgramCard {...card} delay={(index + 2) * 0.08} />
+              </div>
             ))}
           </div>
         </PillarSection>
@@ -60,7 +67,7 @@ export default function ProgramsPage() {
             <PatientStoryPodcastHub />
             <EducationalSpeakerSeriesHub />
 
-            <div className="max-w-xl">
+            <div className={PROGRAM_CARD_WIDTH}>
               <SchoolCommunityEngagementCard delay={0.12} />
             </div>
           </div>

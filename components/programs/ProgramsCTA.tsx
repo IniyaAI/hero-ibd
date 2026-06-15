@@ -20,8 +20,8 @@ export function ProgramsCTA() {
 
       <div className="container-full relative z-10 section-padding">
         <FadeIn className="mx-auto max-w-2xl text-center">
-          <h2 className="font-brand text-2xl font-bold text-white md:text-3xl">Get Involved</h2>
-          <p className="mt-4 text-base leading-relaxed text-white/85 text-pretty md:text-lg">
+          <h2 className="font-brand !text-white text-2xl font-bold md:text-3xl">Get Involved</h2>
+          <p className="mt-4 text-base leading-relaxed !text-white text-pretty md:text-lg">
             Help us create earlier diagnoses, stronger support systems, and more informed communities.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
