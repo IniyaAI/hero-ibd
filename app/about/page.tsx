@@ -7,7 +7,7 @@ import { ABOUT_STORY } from "@/lib/site-content";
 const founders = [
   {
     name: "Aashritha I.",
-    title: "Co-Founder & President",
+    title: "Co-Founder",
     image: "/images/founders/aashritha.jpg",
   },
   {
