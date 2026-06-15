@@ -8,9 +8,9 @@ import { Menu, X } from "lucide-react";
 import { Button } from "./ui/Button";
 
 const navLinks = [
-  { href: "/about", label: "About" },
-  { href: "/programs", label: "Programs" },
-  { href: "/micro-grants", label: "Micro-Grants" },
+  { href: "/about", label: "About Us" },
+  { href: "/programs", label: "Our Programs" },
+  { href: "/micro-grants", label: "Micro-grant Relief Program" },
   { href: "/impact", label: "Impact" },
   { href: "/events", label: "Events" },
   { href: "/get-involved", label: "Get Involved" },

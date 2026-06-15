@@ -1,0 +1,54 @@
+"use client";
+
+import { useState } from "react";
+import Image from "next/image";
+import { Button } from "@/components/ui/Button";
+import { FadeIn } from "@/components/programs/FadeIn";
+import { DonationDriveTimelineModal } from "@/components/programs/DonationDriveTimelineModal";
+import { PROGRAM_CARD_SINGLE_IMAGE_ASPECT } from "@/components/programs/programCardLayout";
+import { DONATION_DRIVES_CARD } from "@/lib/programs-content";
+
+export function DonationDrivesCard({ delay = 0 }: { delay?: number }) {
+  const [modalOpen, setModalOpen] = useState(false);
+  const card = DONATION_DRIVES_CARD;
+
+  return (
+    <>
+      <FadeIn delay={delay}>
+        <article className="group flex flex-col overflow-hidden rounded-xl border hairline bg-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md">
+          <div className={`relative ${PROGRAM_CARD_SINGLE_IMAGE_ASPECT} bg-[var(--color-line)]`}>
+            <Image
+              src={card.images[0].src}
+              alt={card.images[0].alt}
+              fill
+              className="object-cover object-[center_50%] transition-transform duration-500 group-hover:scale-[1.02]"
+              sizes="576px"
+            />
+          </div>
+
+          <div className="flex flex-col p-5 md:p-6">
+            <h3 className="text-lg font-semibold text-[var(--color-plum)]">{card.title}</h3>
+            <p className="mt-2 text-sm leading-relaxed text-[var(--color-plum-light)]">{card.description}</p>
+
+            <ul className="mt-4 space-y-2">
+              {card.metrics.map((metric) => (
+                <li key={metric.label} className="flex items-baseline gap-2 text-sm">
+                  <span className="font-semibold tabular-nums text-[var(--color-coral-deep)]">{metric.value}</span>
+                  <span className="text-[var(--color-plum-muted)]">{metric.label}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-6 pt-2">
+              <Button type="button" onClick={() => setModalOpen(true)} variant="outline" size="sm">
+                Learn More
+              </Button>
+            </div>
+          </div>
+        </article>
+      </FadeIn>
+
+      <DonationDriveTimelineModal open={modalOpen} onClose={() => setModalOpen(false)} />
+    </>
+  );
+}

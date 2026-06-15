@@ -8,6 +8,7 @@ export const SITE = {
   register5kUrl: "https://forms.gle/omnufq3TjZtp4ssH8",
   spotifyEmbedUrl:
     "https://open.spotify.com/embed/show/2eW4ghzCBqdazzHaDs70qR/video?utm_source=generator",
+  podcastUrl: "https://open.spotify.com/show/2eW4ghzCBqdazzHaDs70qR",
   marathonPhotoUrl:
     "https://theplantedrunner.com/wp-content/uploads/2022/01/header-8.png",
 } as const;
@@ -60,14 +61,14 @@ export const HOME_STATS = [
   { value: "162,347+", label: "People reached" },
   { value: "15+", label: "Events hosted" },
   { value: "3+", label: "Schools/communities engaged" },
-  { value: "$1,800+", label: "Funds raised" },
+  { value: "$1,800+", label: "raised" },
 ] as const;
 
 export const IMPACT_STATS = [
   { value: "162,347+", label: "People reached" },
   { value: "15+", label: "Events hosted" },
   { value: "3+", label: "Schools/communities engaged" },
-  { value: "$1,500+", label: "Funds raised" },
+  { value: "$1,800+", label: "raised" },
   { value: "65+", label: "Patients supported" },
 ] as const;
 
@@ -144,9 +145,10 @@ export const PARTNERS = [
 ] as const;
 
 export const PODCAST_SPEAKERS = [
-  { name: "Makayla Allison", image: "/images/speakers/makayla-allison.jpg" },
-  { name: "Rob Nunnery", image: "/images/speakers/rob-nunnery.jpg" },
-  { name: "Nicole Benish", image: "/images/speakers/nicole-benish.jpg" },
+  { name: "Makayla Allison", image: "/images/podcast/speakers/makayla-allison.jpg" },
+  { name: "Rob Nunnery", image: "/images/podcast/speakers/rob-nunnery.jpg" },
+  { name: "Nicole Benish", image: "/images/podcast/speakers/nicole-benish.jpg" },
+  { name: "Lenette Sparacino", image: "/images/podcast/speakers/lenette-sparacino.jpg" },
 ] as const;
 
 export const ABOUT_STORY = `Heart to Heart was born from our passion for helping others and our growing interest in medicine. Early on, we were drawn to understanding how diseases affect people's lives, which led us to lead HOSA community awareness campaigns on sickle cell disease, endometriosis, and pediatric IBD. These experiences revealed how many illnesses remain unheard, stigmatized, and lacking proper awareness or support, leaving patients struggling to get diagnosed. Through personal stories, conversations, and podcast episodes, we witnessed firsthand the challenges patients and families face when conditions go unnoticed or misunderstood. We realized that awareness alone isn't enough; people need real support, education, and connection. Building on initiatives like BLOOM and Heroes for IBD, we founded Heart to Heart, a student-led 501(c)(3) nonprofit empowering youth to create meaningful change through events, storytelling, and outreach programs that foster understanding, break stigma, and promote earlier diagnosis.`;

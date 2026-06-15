@@ -3,12 +3,12 @@ import Image from "next/image";
 import { Instagram, Mail } from "lucide-react";
 
 const links = [
-  { href: "/about", label: "About" },
-  { href: "/programs", label: "Programs" },
+  { href: "/about", label: "About Us" },
+  { href: "/programs", label: "Our Programs" },
   { href: "/impact", label: "Impact" },
   { href: "/events", label: "Events" },
   { href: "/get-involved", label: "Get Involved" },
-  { href: "/micro-grants", label: "Micro-Grants" },
+  { href: "/micro-grants", label: "Micro-grant Relief Program" },
   { href: "/contact", label: "Contact" },
 ];
 
