@@ -7,7 +7,6 @@ import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { ScriptAccent } from "@/components/ui/ScriptAccent";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { SITE } from "@/lib/site-content";
 
 function FeaturedStoryCard({
   imageSrc,
@@ -18,41 +17,72 @@ function FeaturedStoryCard({
   footer,
   priority = false,
 }: {
-  imageSrc: string;
-  imageAlt: string;
+  imageSrc?: string;
+  imageAlt?: string;
   accent: string;
   title: string;
   children: ReactNode;
   footer?: ReactNode;
   priority?: boolean;
 }) {
+  const hasImage = Boolean(imageSrc);
+
   return (
-    <article className="group overflow-hidden rounded-[calc(var(--radius)+4px)] border hairline bg-[var(--color-plum)] shadow-[0_4px_24px_rgba(92,83,104,0.06)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_20px_56px_rgba(92,83,104,0.14)]">
-      <div className="relative min-h-[22rem] overflow-hidden sm:min-h-[26rem] lg:min-h-[32rem]">
-        <Image
-          src={imageSrc}
-          alt={imageAlt}
-          fill
-          priority={priority}
-          className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
-          sizes="(max-width: 1280px) 100vw, 1200px"
-        />
+    <article
+      className={`group overflow-hidden rounded-[calc(var(--radius)+4px)] border hairline shadow-[0_4px_24px_rgba(92,83,104,0.06)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_20px_56px_rgba(92,83,104,0.14)] ${
+        hasImage ? "bg-[var(--color-plum)]" : "bg-white/75 backdrop-blur-sm"
+      }`}
+    >
+      <div
+        className={`relative overflow-hidden ${
+          hasImage ? "min-h-[22rem] sm:min-h-[26rem] lg:min-h-[32rem]" : ""
+        }`}
+      >
+        {hasImage ? (
+          <Image
+            src={imageSrc!}
+            alt={imageAlt ?? ""}
+            fill
+            priority={priority}
+            className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
+            sizes="(max-width: 1280px) 100vw, 1200px"
+          />
+        ) : (
+          <div
+            className="absolute inset-0 bg-gradient-to-br from-[color-mix(in_srgb,var(--color-ombre-start)_28%,white)] via-white/80 to-[color-mix(in_srgb,var(--color-lavender)_16%,white)]"
+            aria-hidden
+          />
+        )}
+        {hasImage && (
+          <div
+            className="absolute inset-0 bg-gradient-to-t from-black/88 via-black/45 to-black/15 transition-opacity duration-500 group-hover:from-black/92"
+            aria-hidden
+          />
+        )}
         <div
-          className="absolute inset-0 bg-gradient-to-t from-black/88 via-black/45 to-black/15 transition-opacity duration-500 group-hover:from-black/92"
-          aria-hidden
-        />
-        <div className="absolute inset-0 flex flex-col justify-end overflow-visible p-6 sm:p-8 md:p-10 lg:p-12">
+          className={`flex flex-col overflow-visible p-6 sm:p-8 md:p-10 lg:p-12 ${
+            hasImage ? "absolute inset-0 justify-end" : "relative"
+          }`}
+        >
           <div className="overflow-visible">
-            <ScriptAccent as="p" size="card" tone="overlay">
+            <ScriptAccent as="p" size="card" tone={hasImage ? "overlay" : "default"}>
               {accent}
             </ScriptAccent>
           </div>
           <h3
-            className="mt-2 text-balance font-[family-name:var(--font-heading)] text-[clamp(1.75rem,4vw,2.75rem)] font-bold! leading-[1.08] tracking-[-0.02em] text-white! md:mt-3 [text-shadow:0_2px_16px_rgba(0,0,0,0.65),0_1px_4px_rgba(0,0,0,0.5)]"
+            className={`mt-2 text-balance font-[family-name:var(--font-heading)] text-[clamp(1.75rem,4vw,2.75rem)] font-bold! leading-[1.08] tracking-[-0.02em] md:mt-3 ${
+              hasImage
+                ? "text-white! [text-shadow:0_2px_16px_rgba(0,0,0,0.65),0_1px_4px_rgba(0,0,0,0.5)]"
+                : "text-[var(--color-plum)]"
+            }`}
           >
             {title}
           </h3>
-          <div className="mt-4 max-w-2xl text-white/90 md:mt-5">{children}</div>
+          <div
+            className={`mt-4 max-w-2xl md:mt-5 ${hasImage ? "text-white/90" : "text-[var(--color-plum-light)]"}`}
+          >
+            {children}
+          </div>
           {footer && <div className="mt-6 md:mt-8">{footer}</div>}
         </div>
       </div>
@@ -81,26 +111,25 @@ export function StoriesOfImpactSection() {
         <div className="space-y-8 lg:space-y-10">
           <ScrollReveal delay={0.05}>
             <FeaturedStoryCard
-              priority
-              imageSrc={SITE.marathonPhotoUrl}
-              imageAlt="Runners at a community marathon"
               accent="Join Us"
               title="Upcoming Events"
               footer={
                 <Button
-                  href={SITE.register5kUrl}
-                  external
-                  className="transition-transform duration-300 hover:scale-[1.03] active:scale-[0.98]"
+                  type="button"
+                  variant="outline"
+                  className="pointer-events-none border-[var(--color-line-strong)] bg-white text-[var(--color-plum)] opacity-100"
                 >
-                  Register for 5K
+                  More Information Coming Soon
                 </Button>
               }
             >
-              <p className="font-brand text-xs tracking-[0.14em] text-white/70 uppercase">
-                May 23, 2026
+              <p className="font-brand text-xs tracking-[0.14em] text-[var(--color-plum-muted)] uppercase">
+                July 25, 2026
               </p>
-              <p className="mt-2 text-xl font-semibold text-white md:text-2xl">5K Walk/Run</p>
-              <p className="mt-3 text-base leading-relaxed text-white/88 text-pretty md:text-lg">
+              <p className="mt-2 text-xl font-semibold text-[var(--color-plum)] md:text-2xl">
+                5K Walk/Run Fundraiser
+              </p>
+              <p className="mt-3 text-base leading-relaxed text-[var(--color-plum-light)] text-pretty md:text-lg">
                 Supporting awareness and research for chronic illness — in partnership with the
                 STAR Foundation for Athletic Recovery and PowerPlay.
               </p>
@@ -118,7 +147,7 @@ export function StoriesOfImpactSection() {
                 <p className="font-brand text-xs tracking-[0.14em] text-white/70 uppercase">
                   2025 · Charity Pickleball Tournament
                 </p>
-                <dl className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-3 sm:gap-4">
+                <dl className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4">
                   <div className="rounded-[var(--radius)] border border-white/20 bg-white/10 px-4 py-3 backdrop-blur-sm transition-colors duration-300 group-hover:bg-white/15">
                     <dt className="text-xs text-white/65">Raised</dt>
                     <dd className="mt-0.5 text-lg font-bold tabular-nums text-[var(--color-ombre-start)]">
@@ -128,10 +157,6 @@ export function StoriesOfImpactSection() {
                   <div className="rounded-[var(--radius)] border border-white/20 bg-white/10 px-4 py-3 backdrop-blur-sm transition-colors duration-300 group-hover:bg-white/15">
                     <dt className="text-xs text-white/65">Type</dt>
                     <dd className="mt-0.5 text-lg font-semibold text-white">Community Event</dd>
-                  </div>
-                  <div className="rounded-[var(--radius)] border border-white/20 bg-white/10 px-4 py-3 backdrop-blur-sm transition-colors duration-300 group-hover:bg-white/15">
-                    <dt className="text-xs text-white/65">Focus</dt>
-                    <dd className="mt-0.5 text-lg font-semibold text-white">Supporting Research</dd>
                   </div>
                 </dl>
               </FeaturedStoryCard>

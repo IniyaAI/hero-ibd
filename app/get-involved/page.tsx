@@ -33,7 +33,7 @@ export default function GetInvolvedPage() {
         <PageHeader {...PAGE_HEADERS.getInvolved} />
 
         <section className="section-padding">
-          <div className="container-full divide-y hairline border-t border-b hairline">
+          <div className="container-full divide-y hairline">
             {involvementOptions.map((option) => (
               <article
                 key={option.title}
