@@ -29,6 +29,10 @@
   --radius: 6px;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: var(--background);
   color: var(--foreground);
@@ -74,8 +78,8 @@ body {
   .text-ombre {
     background: linear-gradient(
       90deg,
-      #fac6c3 0%,
-      #c1a0d2 100%
+      var(--color-ombre-start) 0%,
+      var(--color-ombre-end) 100%
     );
     -webkit-background-clip: text;
     background-clip: text;
@@ -86,39 +90,97 @@ body {
   .text-ombre-accent {
     background: linear-gradient(
       102deg,
-      #c45f52 0%,
-      var(--color-coral-deep) 22%,
-      #b078b8 58%,
-      var(--color-lavender-deep) 100%
+      var(--color-ombre-start) 0%,
+      var(--color-ombre-end) 100%
     );
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
-    text-shadow: 0 2px 12px rgba(143, 127, 184, 0.28);
+    text-shadow: 0 2px 12px rgba(193, 160, 210, 0.28);
   }
 
   .script-accent-gradient {
     background: linear-gradient(
       102deg,
-      #c45f52 0%,
-      var(--color-coral-deep) 22%,
-      #b078b8 58%,
-      var(--color-lavender-deep) 100%
+      var(--color-ombre-start) 0%,
+      var(--color-ombre-end) 100%
     );
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
-    text-shadow: 0 2px 12px rgba(143, 127, 184, 0.28);
+    text-shadow: 0 2px 12px rgba(193, 160, 210, 0.28);
+  }
+
+  .hero-script-brush-reveal {
+    -webkit-mask-image: linear-gradient(
+      94deg,
+      #000 0%,
+      #000 30%,
+      rgba(0, 0, 0, 0.94) 36%,
+      rgba(0, 0, 0, 0.78) 42%,
+      rgba(0, 0, 0, 0.55) 49%,
+      rgba(0, 0, 0, 0.32) 56%,
+      rgba(0, 0, 0, 0.14) 63%,
+      rgba(0, 0, 0, 0.04) 69%,
+      transparent 76%,
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      94deg,
+      #000 0%,
+      #000 30%,
+      rgba(0, 0, 0, 0.94) 36%,
+      rgba(0, 0, 0, 0.78) 42%,
+      rgba(0, 0, 0, 0.55) 49%,
+      rgba(0, 0, 0, 0.32) 56%,
+      rgba(0, 0, 0, 0.14) 63%,
+      rgba(0, 0, 0, 0.04) 69%,
+      transparent 76%,
+      transparent 100%
+    );
+    -webkit-mask-size: 300% 145%;
+    mask-size: 300% 145%;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: 100% 3%;
+    mask-position: 100% 3%;
+    animation: hero-script-brush-reveal 2.8s linear forwards;
+  }
+
+  @keyframes hero-script-brush-reveal {
+    0% {
+      -webkit-mask-position: 105% 4%;
+      mask-position: 105% 4%;
+    }
+    18% {
+      -webkit-mask-position: 78% -2%;
+      mask-position: 78% -2%;
+    }
+    38% {
+      -webkit-mask-position: 54% 5%;
+      mask-position: 54% 5%;
+    }
+    58% {
+      -webkit-mask-position: 32% -1%;
+      mask-position: 32% -1%;
+    }
+    78% {
+      -webkit-mask-position: 12% 3%;
+      mask-position: 12% 3%;
+    }
+    100% {
+      -webkit-mask-position: 0% 0%;
+      mask-position: 0% 0%;
+    }
   }
 
   .text-ombre-hero {
     background: linear-gradient(
       102deg,
-      #ffd4cf 0%,
-      #f0b8c8 35%,
-      #d4b8e8 100%
+      var(--color-ombre-start) 0%,
+      var(--color-ombre-end) 100%
     );
     -webkit-background-clip: text;
     background-clip: text;
@@ -130,7 +192,7 @@ body {
   .accent-rule {
     height: 2px;
     width: 40px;
-    background-color: var(--color-coral);
+    background-color: var(--color-ombre-end);
     border-radius: 1px;
     opacity: 0.9;
   }
@@ -214,10 +276,9 @@ body {
     line-height: 1;
     letter-spacing: 0.01em;
     background: linear-gradient(
-      95deg,
-      var(--color-coral-deep) 0%,
-      #debfd3 48%,
-      var(--color-lavender-deep) 100%
+      102deg,
+      var(--color-ombre-start) 0%,
+      var(--color-ombre-end) 100%
     );
     -webkit-background-clip: text;
     background-clip: text;
@@ -245,6 +306,15 @@ body {
     text-wrap: pretty;
   }
 
+  @keyframes hero-editorial-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+  }
+
+  .hero-editorial-float {
+    animation: hero-editorial-float 5.5s ease-in-out infinite;
+  }
+
   @media (min-width: 768px) {
     .page-hero-title {
       margin-top: 0.875rem;
@@ -265,5 +335,15 @@ body {
   .text-ombre-accent,
   .text-ombre-hero {
     filter: none;
+  }
+
+  .hero-editorial-float {
+    animation: none;
+  }
+
+  .hero-script-brush-reveal {
+    animation: none;
+    -webkit-mask-image: none;
+    mask-image: none;
   }
 }

@@ -9,7 +9,7 @@ import { FundraisersCard } from "@/components/programs/FundraisersCard";
 import { DonationDrivesCard } from "@/components/programs/DonationDrivesCard";
 import { PatientStoryPodcastHub } from "@/components/programs/PatientStoryPodcastHub";
 import { EducationalSpeakerSeriesHub } from "@/components/programs/EducationalSpeakerSeriesHub";
-import { SchoolCommunityEngagementCard } from "@/components/programs/SchoolCommunityEngagementCard";
+import { SchoolCommunityEngagementHub } from "@/components/programs/SchoolCommunityEngagementHub";
 import { PROGRAM_CARD_WIDTH } from "@/components/programs/programCardLayout";
 import { AwarenessProgramsHub } from "@/components/programs/AwarenessProgramsHub";
 import { ProgramsCTA } from "@/components/programs/ProgramsCTA";
@@ -64,10 +64,7 @@ export default function ProgramsPage() {
           <div className="space-y-14">
             <PatientStoryPodcastHub />
             <EducationalSpeakerSeriesHub />
-
-            <div className={PROGRAM_CARD_WIDTH}>
-              <SchoolCommunityEngagementCard delay={0.12} />
-            </div>
+            <SchoolCommunityEngagementHub />
           </div>
         </PillarSection>
 

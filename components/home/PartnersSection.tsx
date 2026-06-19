@@ -27,13 +27,13 @@ export function PartnersSection() {
           {PARTNERS.map((partner, index) => (
             <ScrollReveal key={partner.name} delay={index * 0.08} y={20}>
               <li className="group">
-                <div className="flex h-28 items-center justify-center rounded-[var(--radius)] border hairline bg-[var(--color-wash)] px-4 py-5 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--color-line-strong)] hover:bg-white hover:shadow-[0_12px_36px_rgba(143,127,184,0.18)] sm:h-32">
+                <div className="flex h-28 items-center justify-center rounded-[var(--radius)] border border-transparent px-4 py-5 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--color-line)] hover:bg-[var(--color-wash)] hover:shadow-[0_12px_36px_rgba(143,127,184,0.14)] sm:h-32">
                   <Image
                     src={partner.logo}
                     alt={partner.name}
                     width={200}
                     height={80}
-                    className="max-h-14 w-auto object-contain opacity-[0.72] saturate-[0.88] transition-all duration-300 group-hover:scale-[1.04] group-hover:opacity-100 group-hover:saturate-100 group-hover:drop-shadow-[0_4px_14px_rgba(143,127,184,0.28)] sm:max-h-16"
+                    className="max-h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.04] sm:max-h-16"
                   />
                 </div>
                 <p className="mt-2 hidden text-center text-[0.6875rem] text-[var(--color-plum-muted)] sm:block">

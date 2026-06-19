@@ -72,7 +72,7 @@ export const FUNDRAISER_TIMELINE = [
 export const FUNDRAISERS_CARD = {
   title: "Fundraisers",
   description:
-    "Community events that raise funds for nonprofit partners and future micro-grant initiatives for patients in need.",
+    "Community events that raise funds for nonprofit partners and Heart to Heart's micro-grant relief program for patients in need.",
   images: [
     { src: "/images/events/pickleball-img_0394.jpg", alt: "Charity Pickleball Tournament" },
     { src: "/images/programs/giveback-night.jpg", alt: "Chicken N Pickle Giveback Night" },
@@ -106,7 +106,7 @@ export const DONATION_DRIVE_TIMELINE = [
 export const DONATION_DRIVES_CARD = {
   title: "Donation Drives",
   description:
-    "Care packages, flare kits, and toy drives that bring comfort and joy to pediatric patients navigating chronic illness.",
+    "Care packages, flare kits, and toy drives that bring comfort and joy to patients navigating chronic illness.",
   images: [{ src: "/images/programs/toy-drive-card.png", alt: "Toy donations for Children's Health" }],
   metrics: [{ value: "65", label: "toys donated" }],
 } as const;
@@ -178,7 +178,7 @@ export const PODCAST_SERIES = [
     description:
       "Stories from individuals living with inflammatory bowel disease and those supporting the community.",
     buttonLabel: "Open Series",
-    listenButtonLabel: "Listen to Episodes",
+    listenButtonLabel: "Listen to Voices of IBD Podcast",
     podcastUrl: "https://open.spotify.com/show/2eW4ghzCBqdazzHaDs70qR",
     images: [
       {
@@ -235,10 +235,10 @@ export const GUEST_SPEAKER_EVENTS = [
     metric: "129 people educated",
     description:
       "Focused on endometriosis education, patient awareness, and improving early diagnosis through medical literacy.",
-    imageLayout: "fit-left" as const,
     speakerImage: {
       src: "/images/podcast/webinars/dr-hina-khan.png",
       alt: "Dr. Hina Khan",
+      className: "object-cover object-top",
     },
     eventImage: {
       src: "/images/podcast/webinars/dr-hina-khan-event.png",
@@ -256,7 +256,7 @@ export const GUEST_SPEAKER_EVENTS = [
       "Discussion on chronic illness in youth athletes and building inclusive sports environments.",
     speakerImage: { src: "/images/podcast/webinars/dr-bhaskar-gurram.png", alt: "Dr. Bhaskar Gurram" },
     eventImage: {
-      src: "/images/programs/guest-speaker-img_3791.jpg",
+      src: "/images/programs/dr-gurram-event.png",
       alt: "IBD sports inclusivity seminar event",
     },
   },
@@ -264,10 +264,14 @@ export const GUEST_SPEAKER_EVENTS = [
 
 export type GuestSpeakerEvent = (typeof GUEST_SPEAKER_EVENTS)[number];
 
-export const SCHOOL_COMMUNITY_ENGAGEMENT_CARD = {
+export const SCHOOL_COMMUNITY_ENGAGEMENT = {
   title: "School & Community Engagement",
-  description:
+  subtitle:
     "Partnering with schools and local government to expand chronic illness awareness through education, advocacy, and civic engagement.",
+} as const;
+
+export const SCHOOL_COMMUNITY_ENGAGEMENT_CARD = {
+  title: "Prosper & Celina",
   images: [
     { src: "/images/awareness/proclamation.jpg", alt: "IBD Awareness Week proclamation ceremony" },
     { src: "/images/awareness/school-fullsizerender.jpg", alt: "School community engagement event" },

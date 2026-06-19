@@ -5,57 +5,13 @@ import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { FadeIn } from "@/components/programs/FadeIn";
 import { ProgramDetailModal } from "@/components/programs/ProgramDetailModal";
-import {
-  PROGRAM_CARD_IMAGE_CELL,
-} from "@/components/programs/programCardLayout";
+import { PROGRAM_CARD_IMAGE_CELL } from "@/components/programs/programCardLayout";
 import type { GuestSpeakerEvent } from "@/lib/programs-content";
 
 type SpeakerEventCardProps = {
   event: GuestSpeakerEvent;
   delay?: number;
 };
-
-function FitLeftImagePanel({
-  event,
-  variant,
-}: {
-  event: GuestSpeakerEvent;
-  variant: "card" | "modal";
-}) {
-  const eventImageClassName =
-    "className" in event.eventImage && event.eventImage.className
-      ? `${event.eventImage.className}${variant === "card" ? " transition-transform duration-500 group-hover:scale-[1.02]" : ""}`
-      : `object-cover${variant === "card" ? " transition-transform duration-500 group-hover:scale-[1.02]" : ""}`;
-
-  const containerClass =
-    variant === "modal"
-      ? "flex flex-col gap-2.5 overflow-hidden rounded-xl border hairline md:flex-row md:items-stretch md:aspect-[8/3]"
-      : "flex flex-col gap-2.5 overflow-hidden md:flex-row md:items-stretch md:aspect-[8/3]";
-
-  return (
-    <div className={containerClass}>
-      <div className="relative flex aspect-[3/4] w-full shrink-0 items-center justify-center bg-[var(--color-line)] md:aspect-auto md:h-full md:w-auto md:max-w-[45%]">
-        <Image
-          src={event.speakerImage.src}
-          alt={event.speakerImage.alt}
-          width={400}
-          height={533}
-          className="h-full w-full object-contain md:h-full md:w-auto md:max-h-full"
-          sizes={variant === "card" ? "240px" : "280px"}
-        />
-      </div>
-      <div className="relative aspect-[16/10] w-full min-h-0 flex-1 md:aspect-auto md:h-full">
-        <Image
-          src={event.eventImage.src}
-          alt={event.eventImage.alt}
-          fill
-          className={eventImageClassName}
-          sizes={variant === "card" ? "400px" : "500px"}
-        />
-      </div>
-    </div>
-  );
-}
 
 function CardImagePanel({ event }: { event: GuestSpeakerEvent }) {
   const speakerImageClassName =
@@ -66,10 +22,6 @@ function CardImagePanel({ event }: { event: GuestSpeakerEvent }) {
     "className" in event.eventImage
       ? `${event.eventImage.className} transition-transform duration-500 group-hover:scale-[1.02]`
       : "object-cover transition-transform duration-500 group-hover:scale-[1.02]";
-
-  if ("imageLayout" in event && event.imageLayout === "fit-left") {
-    return <FitLeftImagePanel event={event} variant="card" />;
-  }
 
   return (
     <div className="relative grid grid-cols-2 gap-0.5">
@@ -104,10 +56,6 @@ function ModalImagePanel({ event }: { event: GuestSpeakerEvent }) {
     "className" in event.eventImage && typeof event.eventImage.className === "string"
       ? event.eventImage.className
       : "object-cover";
-
-  if ("imageLayout" in event && event.imageLayout === "fit-left") {
-    return <FitLeftImagePanel event={event} variant="modal" />;
-  }
 
   return (
     <div className="grid grid-cols-2 gap-0.5 overflow-hidden rounded-xl border hairline">

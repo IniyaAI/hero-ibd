@@ -66,7 +66,7 @@ export const HeroSection = () => {
                     <div className="relative w-full h-full max-w-[500px] max-h-[500px] p-6">
                         <div className="w-full h-full bg-paper rounded-[255px_15px_225px_15px/15px_225px_15px_255px] border-2 border-primary/20 flex items-center justify-center overflow-hidden shadow-lg transform rotate-2">
                             <Image 
-                                src="/images/logo.jpg" 
+                                src="/images/logo.png" 
                                 alt="Heroes for Pediatric IBD Logo" 
                                 width={400}
                                 height={400}

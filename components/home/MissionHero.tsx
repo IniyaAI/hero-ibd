@@ -1,53 +1,51 @@
 import { Button } from "@/components/ui/Button";
 import { AnimatedStatsRow } from "@/components/ui/AnimatedStatsRow";
-import { HeroPhotoCarousel } from "@/components/home/HeroPhotoCarousel";
+import { MissionHeadline } from "@/components/home/MissionHeadline";
+import { HeroEditorialCarousel } from "@/components/home/HeroEditorialCarousel";
 import { HOME_STATS, MISSION_STATEMENT } from "@/lib/site-content";
 
 export function MissionHero() {
   return (
     <section className="border-b hairline">
-      <div className="relative min-h-[min(100vh,900px)] overflow-hidden">
-        <HeroPhotoCarousel className="absolute inset-0 z-0" />
-
+      <div className="relative overflow-hidden bg-gradient-to-br from-[var(--color-wash)] via-white to-[#fdf7f9]">
         <div
-          className="absolute inset-0 z-[1] bg-gradient-to-r from-black/80 via-black/50 to-transparent"
+          className="pointer-events-none absolute inset-0 bg-[url('/images/watercolor-paper.svg')] bg-cover opacity-[0.25]"
+          aria-hidden
+        />
+        <div
+          className="pointer-events-none absolute -right-16 -top-20 h-72 w-72 rounded-full bg-[var(--color-lavender)] opacity-[0.12] blur-3xl"
+          aria-hidden
+        />
+        <div
+          className="pointer-events-none absolute -bottom-24 -left-12 h-64 w-64 rounded-full bg-[var(--color-ombre-start)] opacity-[0.2] blur-3xl"
           aria-hidden
         />
 
-        <div
-          className="absolute inset-0 z-[1] bg-[radial-gradient(ellipse_at_center,transparent_45%,rgba(0,0,0,0.22)_100%)]"
-          aria-hidden
-        />
+        <div className="container-full relative">
+          <div className="grid min-h-[min(100vh,900px)] grid-cols-1 items-center gap-12 py-12 md:gap-10 md:py-16 lg:grid-cols-2 lg:gap-14 xl:gap-20 lg:py-20">
+            <div className="max-w-xl lg:max-w-lg xl:max-w-xl">
+              <p className="tagline-brand mb-4 text-[0.6875rem] md:mb-5 md:text-xs">
+                501(c)(3) youth-led nonprofit
+              </p>
 
-        <div className="container-full relative z-10 flex min-h-[min(100vh,900px)] items-center px-4 py-12 md:py-16 lg:py-20">
-          <div className="max-w-xl text-left md:max-w-lg lg:max-w-xl">
-            <p className="tagline-brand mb-4 text-white/75 md:mb-5">501(c)(3) youth-led nonprofit</p>
+              <MissionHeadline />
 
-            <h1>
-              <span className="font-brand mb-2 block text-xs text-white/80 md:mb-3 md:text-sm">
-                Heart to Heart:
-              </span>
-              <span className="block font-[family-name:var(--font-heading)] text-[clamp(1.75rem,3.5vw,2.5rem)] font-semibold leading-[1.12] text-white">
-                Where awareness
-              </span>
-              <span className="font-script-accent text-ombre-hero mt-1 inline-block pb-1 text-[clamp(2.5rem,6vw,4.25rem)] font-bold leading-[0.92] md:mt-2">
-                leads to action
-              </span>
-            </h1>
+              <p className="mt-5 max-w-md text-base leading-relaxed text-[var(--color-plum-light)] text-pretty md:mt-6 md:text-lg">
+                {MISSION_STATEMENT}
+              </p>
 
-            <p className="mt-5 max-w-md text-[0.98rem] leading-relaxed text-white/88 text-pretty md:mt-6 md:text-base">
-              {MISSION_STATEMENT}
-            </p>
+              <div className="mt-7 flex flex-wrap gap-3 md:mt-8">
+                <Button href="/get-involved#donate" className="px-6 py-3 text-base">
+                  Donate
+                </Button>
+                <Button href="/about" variant="outline" className="px-6 py-3 text-base">
+                  Our story
+                </Button>
+              </div>
+            </div>
 
-            <div className="mt-7 flex flex-wrap gap-3 md:mt-8">
-              <Button href="/get-involved#donate">Donate</Button>
-              <Button
-                href="/about"
-                variant="outline"
-                className="border-white/55 bg-white/5 text-white hover:border-white/80 hover:bg-white/10 hover:text-white"
-              >
-                Our story
-              </Button>
+            <div className="flex items-center justify-center lg:justify-end">
+              <HeroEditorialCarousel className="w-full max-w-[560px] lg:max-w-none" />
             </div>
           </div>
         </div>
