@@ -40,19 +40,19 @@ const dancingScript = Dancing_Script({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://hero-ibd.vercel.app"),
-  title: "Heart to Heart NPO | Where Awareness Leads to Action",
+  title: "Heart to Heart",
   description:
     "Heart to Heart is a youth-led 501(c)(3) nonprofit dedicated to promoting earlier diagnosis and improving outcomes for individuals living with chronic illnesses through awareness, education, and support.",
   icons: {
-    icon: "/images/logo.png",
-    apple: "/images/logo.png",
+    icon: "/images/favicon.png",
+    apple: "/images/favicon.png",
   },
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "/",
     siteName: "Heart to Heart NPO",
-    title: "Heart to Heart NPO | Where Awareness Leads to Action",
+    title: "Heart to Heart",
     description:
       "Heart to Heart is a youth-led 501(c)(3) nonprofit dedicated to promoting earlier diagnosis and improving outcomes for individuals living with chronic illnesses through awareness, education, and support.",
     images: [
@@ -66,7 +66,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Heart to Heart NPO | Where Awareness Leads to Action",
+    title: "Heart to Heart",
     description:
       "Heart to Heart is a youth-led 501(c)(3) nonprofit dedicated to promoting earlier diagnosis and improving outcomes for individuals living with chronic illnesses through awareness, education, and support.",
     images: ["/images/og-cover.jpg"],
