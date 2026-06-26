@@ -10,7 +10,7 @@ type ScriptAccentProps = {
 
 const sizeClasses = {
   header:
-    "text-[clamp(2rem,4.25vw,3.375rem)] leading-[1.75] pt-[0.04em] pb-[0.22em]",
+    "text-[clamp(2rem,4.25vw,3.375rem)] leading-[1.55] pt-[0.04em] pb-0",
   quote:
     "text-[clamp(2rem,4.5vw,3.375rem)] leading-[1.75] pt-[0.05em] pb-[0.5em]",
   hero:

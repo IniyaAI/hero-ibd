@@ -24,7 +24,7 @@ export function PageHeader({ accentHeading, title, description }: PageHeaderProp
             <ScriptAccent size="header">{accentHeading}</ScriptAccent>
           </div>
 
-          <h1 className="mt-1 text-balance font-[family-name:var(--font-heading)] text-[clamp(2.75rem,6.5vw,4.5rem)] font-bold! leading-[1.04] tracking-[-0.02em] text-[var(--color-plum)] md:mt-1.5">
+          <h1 className="-mt-0.5 text-balance font-[family-name:var(--font-heading)] text-[clamp(2.75rem,6.5vw,4.5rem)] font-bold! leading-[1.04] tracking-[-0.02em] text-[var(--color-plum)] md:-mt-1">
             {title}
           </h1>
 
