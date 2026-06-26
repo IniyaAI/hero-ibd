@@ -72,7 +72,7 @@ export const FUNDRAISER_TIMELINE = [
 export const FUNDRAISERS_CARD = {
   title: "Fundraisers",
   description:
-    "Community events that raise funds for nonprofit partners and Heart to Heart's micro-grant relief program for patients in need.",
+    "Community events that raise funds for nonprofit partners and Heart to Heart's microgrant relief program for patients in need.",
   images: [
     { src: "/images/events/pickleball-img_0394.jpg", alt: "Charity Pickleball Tournament" },
     { src: "/images/programs/giveback-night.jpg", alt: "Chicken N Pickle Giveback Night" },
@@ -113,16 +113,16 @@ export const DONATION_DRIVES_CARD = {
 
 export const SUPPORT_CARDS = [
   {
-    title: "Micro-grant Relief Program",
+    title: "Microgrant Relief Program",
     description:
-      "Need-based micro-grants providing financial assistance for healthcare-related expenses and day-to-day support.",
-    images: [{ src: "/images/watercolor-paper.svg", alt: "Micro-grants program illustration" }],
+      "Need-based microgrants providing financial assistance for healthcare-related expenses and day-to-day support.",
+    images: [{ src: "/images/watercolor-paper.svg", alt: "Microgrants program illustration" }],
     metrics: [
       { value: "—", label: "Patients Supported" },
       { value: "—", label: "Funds Distributed" },
     ],
     comingSoon: true,
-    cta: { label: "Apply for a Micro-Grant", href: "/micro-grants" },
+    cta: { label: "Apply for a Microgrant", href: "/micro-grants" },
   },
 ] as const;
 

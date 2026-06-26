@@ -53,7 +53,7 @@ export const PAGE_HEADERS = {
   microGrants: {
     accentHeading: "Apply Today",
     title: "Microgrants",
-    description: "Thank you for your interest in the Heart to Heart Micro-Grant Program!",
+    description: "Thank you for your interest in the Heart to Heart Microgrant Program!",
   },
 } as const;
 
@@ -74,7 +74,7 @@ export const IMPACT_STATS = [
 
 export const FUND_USES = [
   "Program materials and outreach events",
-  "Support initiatives and micro-grants",
+  "Support initiatives and microgrants",
   "Educational resources and toolkits",
   "Community engagement activities",
 ] as const;
@@ -87,7 +87,7 @@ export const PILLARS = [
     title: "Support",
     accent: "var(--color-coral)",
     description:
-      "Our Support pillar is dedicated to uplifting individuals and families affected by chronic illnesses by providing essential resources and financial assistance. Through initiatives such as care packages, flare kits, and micro-grants, we help ease the day-to-day burdens of long-term conditions while fostering a community where individuals feel supported, understood, and empowered.",
+      "Our Support pillar is dedicated to uplifting individuals and families affected by chronic illnesses by providing essential resources and financial assistance. Through initiatives such as care packages, flare kits, and microgrants, we help ease the day-to-day burdens of long-term conditions while fostering a community where individuals feel supported, understood, and empowered.",
     href: "/programs#support",
   },
   {

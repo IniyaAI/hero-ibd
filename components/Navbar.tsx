@@ -11,7 +11,7 @@ const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About Us" },
   { href: "/programs", label: "Our Programs" },
-  { href: "/micro-grants", label: "Micro-grant Relief Program" },
+  { href: "/micro-grants", label: "Microgrant Relief Program" },
   { href: "/impact", label: "Impact" },
   { href: "/events", label: "Events" },
   { href: "/get-involved", label: "Get Involved" },

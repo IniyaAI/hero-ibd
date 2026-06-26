@@ -14,7 +14,7 @@ export default function MicroGrantsPage() {
         <section className="pt-14 md:pt-20 pb-28 md:pb-32">
           <div className="container-full max-w-2xl space-y-8 text-[var(--color-plum-light)] leading-relaxed">
             <p>
-              The Heart to Heart Micro-Grant Program provides small, need-based financial assistance
+              The Heart to Heart Microgrant Program provides small, need-based financial assistance
               to individuals facing medical and health-related challenges. While our mission is rooted
               in supporting those affected by chronic illnesses, we also extend support to others
               experiencing urgent healthcare-related financial need.
@@ -22,7 +22,7 @@ export default function MicroGrantsPage() {
 
             <p>
               Funding may be used for medical care, supplies, transportation, wellness support,
-              medical procedures, and other health-related needs. At this time, micro-grants are
+              medical procedures, and other health-related needs. At this time, microgrants are
               limited to a maximum of{" "}
               <strong className="text-[var(--color-plum)]">$500 per award</strong>.
             </p>

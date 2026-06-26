@@ -8,7 +8,7 @@ const links = [
   { href: "/impact", label: "Impact" },
   { href: "/events", label: "Events" },
   { href: "/get-involved", label: "Get Involved" },
-  { href: "/micro-grants", label: "Micro-grant Relief Program" },
+  { href: "/micro-grants", label: "Microgrant Relief Program" },
   { href: "/contact", label: "Contact" },
 ];
 

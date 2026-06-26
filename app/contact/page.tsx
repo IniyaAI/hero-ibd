@@ -1,4 +1,4 @@
-import { Instagram } from "lucide-react";
+import { Instagram, Mail } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { PageHeader } from "@/components/ui/PageHeader";
@@ -17,7 +17,11 @@ export default function ContactPage() {
             <div className="space-y-6 text-sm">
               <div>
                 <p className="text-[var(--color-plum-muted)] mb-1">Email</p>
-                <a href={`mailto:${SITE.email}`} className="text-[var(--color-plum)] hover:text-[var(--color-coral)]">
+                <a
+                  href={`mailto:${SITE.email}`}
+                  className="inline-flex items-center gap-1.5 text-[var(--color-plum)] hover:text-[var(--color-coral)]"
+                >
+                  <Mail size={15} />
                   {SITE.email}
                 </a>
               </div>
