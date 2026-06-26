@@ -14,7 +14,7 @@ export function EventsHero() {
         <div className="accent-rule mb-6" />
         <ScriptAccent size="header">Community Impact</ScriptAccent>
         <h1 className="mt-2 text-balance font-[family-name:var(--font-heading)] text-[clamp(2.25rem,5vw,3.5rem)] font-bold leading-tight tracking-tight text-[var(--color-plum)]">
-          Events & Community Impact
+          Events
         </h1>
         <p className="mt-5 max-w-2xl text-pretty text-lg leading-relaxed text-[var(--color-plum-light)]">
           Explore our awareness campaigns, fundraisers, educational programs, and advocacy efforts dedicated to
