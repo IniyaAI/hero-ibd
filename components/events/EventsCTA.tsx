@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/Button";
 export function EventsCTA() {
   return (
     <section className="section-padding border-t hairline bg-white">
-      <div className="mx-auto w-full max-w-[1200px] px-6 text-center md:px-8">
+      <div className="container-full text-center">
         <h2 className="text-2xl font-semibold text-[var(--color-plum)] md:text-3xl">Join Our Next Event</h2>
         <p className="mx-auto mt-4 max-w-xl text-[var(--color-plum-light)] leading-relaxed">
           Every event brings us closer to earlier diagnosis, stronger support systems, and greater awareness for

@@ -37,7 +37,7 @@ export function PastEventsArchive() {
 
   return (
     <section id="past-events" className="scroll-mt-24 section-padding bg-[var(--color-wash)]">
-      <div className="mx-auto w-full max-w-[1200px] px-6 md:px-8">
+      <div className="container-full">
         <div className="mb-10 max-w-2xl">
           <h2 className="text-2xl font-semibold text-[var(--color-plum)] md:text-3xl">Past events archive</h2>
           <p className="mt-3 text-[var(--color-plum-light)]">

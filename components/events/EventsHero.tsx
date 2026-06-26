@@ -10,7 +10,7 @@ export function EventsHero() {
         <div className="absolute -bottom-20 -left-6 h-64 w-64 rounded-full bg-[var(--color-ombre-start)] opacity-[0.22] blur-3xl" />
       </div>
 
-      <div className="relative mx-auto w-full max-w-[1200px] px-6 py-16 md:px-8 md:py-20 lg:py-24">
+      <div className="container-full relative py-16 md:py-20 lg:py-24">
         <div className="accent-rule mb-6" />
         <ScriptAccent size="header">Community Impact</ScriptAccent>
         <h1 className="mt-2 text-balance font-[family-name:var(--font-heading)] text-[clamp(2.25rem,5vw,3.5rem)] font-bold leading-tight tracking-tight text-[var(--color-plum)]">

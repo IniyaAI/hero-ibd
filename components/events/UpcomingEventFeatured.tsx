@@ -6,7 +6,7 @@ import { UPCOMING_EVENT } from "@/lib/events-content";
 export function UpcomingEventFeatured() {
   return (
     <section id="upcoming-events" className="scroll-mt-24 section-padding border-b hairline">
-      <div className="mx-auto w-full max-w-[1200px] px-6 md:px-8">
+      <div className="container-full">
         <div className="mb-10">
           <h2 className="text-2xl font-semibold text-[var(--color-plum)] md:text-3xl">Upcoming events</h2>
           <p className="mt-2 max-w-2xl text-[var(--color-plum-light)]">
